@@ -1,0 +1,273 @@
+﻿<Controls:MetroWindow
+        xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+        x:Class="NVHplatform.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:views="clr-namespace:NVHplatform.Views"
+        xmlns:vm="clr-namespace:NVHplatform.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF"
+        xmlns:AduSkin="clr-namespace:AduSkin.Controls.Metro;assembly=AduSkin"
+        mc:Ignorable="d"
+        Title="上工程NVH团队-音频分析平台"
+        Height="720" Width="1280"
+        FontFamily="黑体"
+        MinHeight="675.5" MinWidth="1200"
+        ResizeMode="CanResizeWithGrip"
+        WindowStartupLocation="CenterScreen"
+        BorderThickness="1" BorderBrush="#FF454545"
+        GlowBrush="#FF454545"  
+        WindowTitleBrush="#454A4E"
+        TitleForeground="White" TitleBarHeight="40">
+
+    <Controls:MetroWindow.Resources>
+        <!-- 覆盖MahApps默认的强调色 -->
+        <SolidColorBrush x:Key="AccentColorBrush" Color="#FF454545"/>
+        <SolidColorBrush x:Key="WindowTitleBrush" Color="#454A4E"/>
+
+        <!-- 窗口按钮样式 -->
+        <Style x:Key="WindowButtonStyle" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Border x:Name="border" 
+                                    Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="0">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#FF3E3E40"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#454A4E"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- 设置sidebar -->
+        <Style x:Key="SidebarButtonStyle" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+            <!-- 重置基础样式 -->
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Foreground" Value="#333333"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="8,6"/>
+
+            <!-- 模板定义 -->
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" 
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="4"
+                            SnapsToDevicePixels="True">
+                            <ContentPresenter x:Name="contentPresenter"
+                                        ContentTemplate="{TemplateBinding ContentTemplate}"
+                                        Content="{TemplateBinding Content}"
+                                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                        RecognizesAccessKey="True"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <!-- 悬停效果 -->
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#E0E0E0"/>
+                                <Setter Property="Foreground" Value="#1A1A1A"/>
+                            </Trigger>
+                            <!-- 按下效果 -->
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#D0D0D0"/>
+                            </Trigger>
+                            <!-- 禁用状态 -->
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="border" Property="Opacity" Value="0.5"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- 关闭按钮特殊样式 -->
+        <Style x:Key="WindowCloseButtonStyle" TargetType="Button" BasedOn="{StaticResource WindowButtonStyle}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Border x:Name="border" 
+                                    Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="0">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#FFE81123"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Controls:MetroWindow.Resources>
+
+    <!-- 自定义标题栏模板 -->
+    <Controls:MetroWindow.TitleTemplate>
+        <DataTemplate>
+            <Grid Background="#454A4E">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- 标题文本居中 -->
+                <TextBlock Grid.Column="1" 
+                           Margin="120,0,0,0"
+                       Text="{Binding}" 
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       FontFamily="方正粗黑宋简体"
+                       FontSize="16"
+                       Foreground="White"/>
+            </Grid>
+        </DataTemplate>
+    </Controls:MetroWindow.TitleTemplate>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.5*" MinWidth="115"/>
+            <!-- 左侧边栏 -->
+            <ColumnDefinition Width="9.5*" MinWidth="400"/>
+            <!-- 主内容区 -->
+        </Grid.ColumnDefinitions>
+
+        <Grid x:Name="Sidebar" Grid.Column="0"
+                VerticalAlignment="Stretch"
+                HorizontalAlignment="Stretch"
+                >
+            <!-- 浅色渐变背景 + 投影 -->
+            <Grid.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                    <GradientStop Color="#FAFAFA" Offset="0"/>
+                    <GradientStop Color="#F0F0F0" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <Grid.Effect>
+                <DropShadowEffect BlurRadius="8" ShadowDepth="2" Opacity="0.1" Direction="270"/>
+            </Grid.Effect>
+            <Grid.RenderTransform>
+                <TranslateTransform x:Name="SidebarTransform"/>
+            </Grid.RenderTransform>
+
+            <StackPanel>
+                <TextBlock Text="菜单Menu" Margin="0,20,0,15" 
+                   HorizontalAlignment="Center" 
+                   FontFamily="方正粗黑宋简体"
+                   FontWeight="Bold"
+                   FontSize="18" 
+                   Foreground="#333333"/>
+
+                <!-- 登录按钮 -->
+                <Button Margin="20,15,20,15" Background="Transparent" FontFamily="方正粗黑宋简体"
+                Foreground="#333333" 
+                Style="{StaticResource SidebarButtonStyle}">
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                        <Image Source="/Windows/resources/icons/login.png" 
+                       Width="24" Height="24" 
+                       Margin="0,0,0,6"/>
+                        <TextBlock Text="登录" FontSize="14" 
+                           HorizontalAlignment="Center"
+                           FontFamily="Segoe UI Semibold"/>
+                    </StackPanel>
+                </Button>
+
+                <!-- 音频录制按钮 -->
+                <Button Margin="20,15,20,15" Background="Transparent" FontFamily="方正粗黑宋简体"
+                Foreground="#333333"
+                Style="{StaticResource SidebarButtonStyle}">
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                        <Image Source="/Windows/resources/icons/real.png" 
+                       Width="24" Height="24" 
+                       Margin="0,0,0,6"/>
+                        <TextBlock Text="音频录制" FontSize="14" 
+                           HorizontalAlignment="Center"
+                           FontFamily="Segoe UI Semibold"/>
+                    </StackPanel>
+                </Button>
+
+                <!-- 深度分析按钮 -->
+                <Button Margin="20,15,20,15" Background="Transparent" FontFamily="方正粗黑宋简体"
+                Foreground="#333333"
+                Style="{StaticResource SidebarButtonStyle}">
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                        <Image Source="/Windows/resources/icons/deep.png" 
+                       Width="24" Height="24" 
+                       Margin="0,0,0,6"/>
+                        <TextBlock Text="深度分析" FontSize="14" 
+                           HorizontalAlignment="Center"
+                           FontFamily="Segoe UI Semibold"/>
+                    </StackPanel>
+                </Button>
+
+                <!-- 历史数据按钮 -->
+                <Button Margin="20,15,20,15" Background="Transparent" FontFamily="方正粗黑宋简体"
+                Foreground="#333333"
+                Style="{StaticResource SidebarButtonStyle}">
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                        <Image Source="/Windows/resources/icons/history.png" 
+                       Width="24" Height="24" 
+                       Margin="0,0,0,6"/>
+                        <TextBlock Text="历史数据" FontSize="14" 
+                           HorizontalAlignment="Center"
+                           FontFamily="Segoe UI Semibold"/>
+                    </StackPanel>
+                </Button>
+
+                <!-- 设置按钮 -->
+                <Button Margin="20,15,20,15" Background="Transparent" FontFamily="方正粗黑宋简体"
+                Foreground="#333333"
+                Style="{StaticResource SidebarButtonStyle}">
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                        <Image Source="/Windows/resources/icons/setting.png" 
+                       Width="24" Height="24" 
+                       Margin="0,0,0,6"/>
+                        <TextBlock Text="设置" FontSize="14" 
+                           HorizontalAlignment="Center"
+                           FontFamily="Segoe UI Semibold"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </Grid>
+
+        <Grid x:Name="MainContent" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*" MinWidth="115" />
+                <!-- 左侧边栏 -->
+                <ColumnDefinition Width="6*" MinWidth="400"/>
+                <!-- 主内容区 -->
+            </Grid.ColumnDefinitions>
+
+            <views:RecordingView DataContext="{Binding RecordingVM}" Grid.Column="0" />
+
+            <ContentControl Grid.Column="1" Content="{Binding CurrentContent}" />
+        </Grid>
+
+    </Grid>
+</Controls:MetroWindow>

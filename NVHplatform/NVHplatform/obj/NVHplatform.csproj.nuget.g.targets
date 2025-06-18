@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)system.text.json\8.0.5\buildTransitive\net462\System.Text.Json.targets" Condition="Exists('$(NuGetPackageRoot)system.text.json\8.0.5\buildTransitive\net462\System.Text.Json.targets')" />
+    <Import Project="$(NuGetPackageRoot)skiasharp.nativeassets.win32\3.119.0\buildTransitive\net462\SkiaSharp.NativeAssets.Win32.targets" Condition="Exists('$(NuGetPackageRoot)skiasharp.nativeassets.win32\3.119.0\buildTransitive\net462\SkiaSharp.NativeAssets.Win32.targets')" />
+    <Import Project="$(NuGetPackageRoot)skiasharp.nativeassets.macos\3.119.0\buildTransitive\net462\SkiaSharp.NativeAssets.macOS.targets" Condition="Exists('$(NuGetPackageRoot)skiasharp.nativeassets.macos\3.119.0\buildTransitive\net462\SkiaSharp.NativeAssets.macOS.targets')" />
+    <Import Project="$(NuGetPackageRoot)harfbuzzsharp.nativeassets.win32\8.3.1.1\buildTransitive\net462\HarfBuzzSharp.NativeAssets.Win32.targets" Condition="Exists('$(NuGetPackageRoot)harfbuzzsharp.nativeassets.win32\8.3.1.1\buildTransitive\net462\HarfBuzzSharp.NativeAssets.Win32.targets')" />
+    <Import Project="$(NuGetPackageRoot)harfbuzzsharp.nativeassets.macos\8.3.1.1\buildTransitive\net462\HarfBuzzSharp.NativeAssets.macOS.targets" Condition="Exists('$(NuGetPackageRoot)harfbuzzsharp.nativeassets.macos\8.3.1.1\buildTransitive\net462\HarfBuzzSharp.NativeAssets.macOS.targets')" />
+    <Import Project="$(NuGetPackageRoot)prism.events\9.0.537\buildTransitive\Prism.Events.targets" Condition="Exists('$(NuGetPackageRoot)prism.events\9.0.537\buildTransitive\Prism.Events.targets')" />
+    <Import Project="$(NuGetPackageRoot)prism.container.abstractions\9.0.106\buildTransitive\Prism.Container.Abstractions.targets" Condition="Exists('$(NuGetPackageRoot)prism.container.abstractions\9.0.106\buildTransitive\Prism.Container.Abstractions.targets')" />
+    <Import Project="$(NuGetPackageRoot)prism.core\9.0.537\buildTransitive\Prism.Core.targets" Condition="Exists('$(NuGetPackageRoot)prism.core\9.0.537\buildTransitive\Prism.Core.targets')" />
+    <Import Project="$(NuGetPackageRoot)communitytoolkit.mvvm\8.4.0\buildTransitive\CommunityToolkit.Mvvm.targets" Condition="Exists('$(NuGetPackageRoot)communitytoolkit.mvvm\8.4.0\buildTransitive\CommunityToolkit.Mvvm.targets')" />
+  </ImportGroup>
+</Project>
