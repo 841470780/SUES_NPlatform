@@ -1,0 +1,2 @@
+# SUES_NPlatform
+SUES机械与汽车工程学院NVH实验室音频分析平台
