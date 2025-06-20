@@ -11,7 +11,7 @@
         xmlns:AduSkin="clr-namespace:AduSkin.Controls.Metro;assembly=AduSkin"
         mc:Ignorable="d"
         Title="上工程NVH团队-音频分析平台"
-        Height="720" Width="1280"
+        Height="900" Width="1440"
         FontFamily="黑体"
         MinHeight="675.5" MinWidth="1200"
         ResizeMode="CanResizeWithGrip"
@@ -57,7 +57,6 @@
 
         <!-- 设置sidebar -->
         <Style x:Key="SidebarButtonStyle" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
-            <!-- 重置基础样式 -->
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="BorderBrush" Value="Transparent"/>
             <Setter Property="BorderThickness" Value="0"/>
@@ -65,35 +64,38 @@
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
             <Setter Property="Padding" Value="8,6"/>
-
-            <!-- 模板定义 -->
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border x:Name="border" 
-                            Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="4"
-                            SnapsToDevicePixels="True">
-                            <ContentPresenter x:Name="contentPresenter"
-                                        ContentTemplate="{TemplateBinding ContentTemplate}"
-                                        Content="{TemplateBinding Content}"
-                                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                        RecognizesAccessKey="True"/>
+                        <Border x:Name="border"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="6"
+                        SnapsToDevicePixels="True"
+                        HorizontalAlignment="Stretch"  
+                            VerticalAlignment="Stretch">
+
+                            <Grid Margin="4">
+                                <!-- ✅ 可调区域范围 -->
+                                <ContentPresenter x:Name="contentPresenter"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                                          Content="{TemplateBinding Content}"
+                                          HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"
+                                          RecognizesAccessKey="True"/>
+                            </Grid>
                         </Border>
+
                         <ControlTemplate.Triggers>
-                            <!-- 悬停效果 -->
                             <Trigger Property="IsMouseOver" Value="True">
                                 <Setter TargetName="border" Property="Background" Value="#E0E0E0"/>
                                 <Setter Property="Foreground" Value="#1A1A1A"/>
                             </Trigger>
-                            <!-- 按下效果 -->
                             <Trigger Property="IsPressed" Value="True">
-                                <Setter TargetName="border" Property="Background" Value="#D0D0D0"/>
+                                <Setter TargetName="border" Property="Background" Value="#C0C0C0"/>
+                                <!-- ✅ 更深 -->
                             </Trigger>
-                            <!-- 禁用状态 -->
                             <Trigger Property="IsEnabled" Value="False">
                                 <Setter TargetName="border" Property="Opacity" Value="0.5"/>
                             </Trigger>
@@ -102,6 +104,7 @@
                 </Setter.Value>
             </Setter>
         </Style>
+
 
         <!-- 关闭按钮特殊样式 -->
         <Style x:Key="WindowCloseButtonStyle" TargetType="Button" BasedOn="{StaticResource WindowButtonStyle}">
@@ -186,7 +189,7 @@
 
                 <!-- 登录按钮 -->
                 <Button Margin="20,15,20,15" Background="Transparent" FontFamily="方正粗黑宋简体"
-                Foreground="#333333" 
+                Foreground="#333333"  Command="{Binding NavigateCommand}" CommandParameter="Login"
                 Style="{StaticResource SidebarButtonStyle}">
                     <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
                         <Image Source="/Windows/resources/icons/login.png" 
@@ -200,7 +203,7 @@
 
                 <!-- 音频录制按钮 -->
                 <Button Margin="20,15,20,15" Background="Transparent" FontFamily="方正粗黑宋简体"
-                Foreground="#333333"
+                Foreground="#333333" Command="{Binding NavigateCommand}" CommandParameter="AudioRecord"
                 Style="{StaticResource SidebarButtonStyle}">
                     <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
                         <Image Source="/Windows/resources/icons/real.png" 
@@ -214,7 +217,7 @@
 
                 <!-- 深度分析按钮 -->
                 <Button Margin="20,15,20,15" Background="Transparent" FontFamily="方正粗黑宋简体"
-                Foreground="#333333"
+                Foreground="#333333"  Command="{Binding NavigateCommand}" CommandParameter="Analysis"
                 Style="{StaticResource SidebarButtonStyle}">
                     <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
                         <Image Source="/Windows/resources/icons/deep.png" 
@@ -228,7 +231,7 @@
 
                 <!-- 历史数据按钮 -->
                 <Button Margin="20,15,20,15" Background="Transparent" FontFamily="方正粗黑宋简体"
-                Foreground="#333333"
+                Foreground="#333333" Command="{Binding NavigateCommand}" CommandParameter="History"
                 Style="{StaticResource SidebarButtonStyle}">
                     <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
                         <Image Source="/Windows/resources/icons/history.png" 
@@ -242,7 +245,7 @@
 
                 <!-- 设置按钮 -->
                 <Button Margin="20,15,20,15" Background="Transparent" FontFamily="方正粗黑宋简体"
-                Foreground="#333333"
+                Foreground="#333333" Command="{Binding NavigateCommand}" CommandParameter="Setting"
                 Style="{StaticResource SidebarButtonStyle}">
                     <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
                         <Image Source="/Windows/resources/icons/setting.png" 
@@ -257,17 +260,9 @@
         </Grid>
 
         <Grid x:Name="MainContent" Grid.Column="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="4*" MinWidth="115" />
-                <!-- 左侧边栏 -->
-                <ColumnDefinition Width="6*" MinWidth="400"/>
-                <!-- 主内容区 -->
-            </Grid.ColumnDefinitions>
-
-            <views:RecordingView DataContext="{Binding RecordingVM}" Grid.Column="0" />
-
-            <ContentControl Grid.Column="1" Content="{Binding CurrentContent}" />
+            <ContentControl Content="{Binding CurrentView}" />
         </Grid>
+
 
     </Grid>
 </Controls:MetroWindow>

@@ -5,16 +5,16 @@ using SkiaSharp;
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
 using System.Runtime.CompilerServices;
 
 namespace NVHplatform.ViewModels
 {
     public class FluctuationChartViewModel : INotifyPropertyChanged
     {
-        private ObservableCollection<double> _fluctuationValues;
-        private ISeries[] _fluctuationSeries;
-        private Axis[] _xAxes;
-        private Axis[] _yAxes;
+        private const int MaxPoints = 200;
+
+        private ObservableCollection<double> _fluctuationValues = new ObservableCollection<double>();
 
         public ObservableCollection<double> FluctuationValues
         {
@@ -26,78 +26,73 @@ namespace NVHplatform.ViewModels
             }
         }
 
-        public ISeries[] FluctuationSeries
-        {
-            get => _fluctuationSeries;
-            set
-            {
-                _fluctuationSeries = value;
-                OnPropertyChanged();
-            }
-        }
+        public ISeries[] FluctuationSeries { get; set; }
 
-        public Axis[] XAxes
-        {
-            get => _xAxes;
-            set
-            {
-                _xAxes = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public Axis[] YAxes
-        {
-            get => _yAxes;
-            set
-            {
-                _yAxes = value;
-                OnPropertyChanged();
-            }
-        }
+        public Axis[] XAxes { get; set; }
+        public Axis[] YAxes { get; set; }
 
         public FluctuationChartViewModel()
         {
-            FluctuationValues = new ObservableCollection<double> { 0.2, 0.4, 0.35, 0.6, 0.55, 0.8, 0.75 };
-
             FluctuationSeries = new ISeries[]
             {
                 new LineSeries<double>
                 {
                     Values = FluctuationValues,
-                    GeometrySize = 6,
+                    GeometrySize = 0,
                     Fill = null,
-                    Stroke = new SolidColorPaint(SKColors.OrangeRed, 2),
-                    GeometryFill = new SolidColorPaint(SKColors.White),
-                    GeometryStroke = new SolidColorPaint(SKColors.OrangeRed, 2)
+                    Stroke = new SolidColorPaint(SKColors.Crimson, 2),
+                    GeometryFill = null,
+                    GeometryStroke = null
                 }
             };
 
             XAxes = new[]
             {
-                CreateAxis("Time (s)", v => v.ToString("F1"))
+                new Axis
+                {
+                    Name = "Time (frames)",
+                    NameTextSize = 16,
+                    NamePaint = new SolidColorPaint(SKColors.Black),
+                    LabelsRotation = 0,
+                    TextSize = 13,
+                    Padding = new LiveChartsCore.Drawing.Padding(10, 5),
+                    SeparatorsPaint = new SolidColorPaint(SKColors.LightGray) { StrokeThickness = 0.5f },
+                    TicksPaint = new SolidColorPaint(SKColors.Gray),
+                    LabelsPaint = new SolidColorPaint(SKColors.Black),
+                    DrawTicksPath = true
+                }
             };
 
             YAxes = new[]
             {
-                CreateAxis("Fluctuation", v => v.ToString("F2"), minLimit: 0)
+                new Axis
+                {
+                    Name = "Fluctuation",
+                    NameTextSize = 16,
+                    NamePaint = new SolidColorPaint(SKColors.Black),
+                    LabelsRotation = 0,
+                    TextSize = 13,
+                    Padding = new LiveChartsCore.Drawing.Padding(10, 5),
+                    SeparatorsPaint = new SolidColorPaint(SKColors.LightGray) { StrokeThickness = 0.5f },
+                    TicksPaint = new SolidColorPaint(SKColors.Gray),
+                    LabelsPaint = new SolidColorPaint(SKColors.Black),
+                    DrawTicksPath = true
+                }
             };
         }
 
-        private Axis CreateAxis(string name, Func<double, string> labeler, double? minLimit = null)
+        public void UpdateFluctuation(float[] samples)
         {
-            return new Axis
+            if (samples == null || samples.Length == 0) return;
+
+            double rms = Math.Sqrt(samples.Average(s => s * s));
+
+            App.Current.Dispatcher.Invoke(() =>
             {
-                Name = name,
-                NameTextSize = 16,
-                TextSize = 14,
-                Labeler = labeler,
-                MinLimit = minLimit,
-                LabelsPaint = new SolidColorPaint(SKColors.Black),
-                TicksPaint = new SolidColorPaint(SKColors.Gray),
-                SeparatorsPaint = new SolidColorPaint(SKColors.LightGray),
-                Padding = new LiveChartsCore.Drawing.Padding(5)
-            };
+                if (FluctuationValues.Count >= MaxPoints)
+                    FluctuationValues.RemoveAt(0);
+                FluctuationValues.Add(rms);
+            });
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

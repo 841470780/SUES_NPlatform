@@ -13,6 +13,8 @@ namespace NVHplatform.ViewModels
         private const int MaxPoints = 1024;
         private ObservableCollection<double> _waveformValues;
         private ISeries[] _waveformSeries;
+        public Axis[] XAxes { get; set; }
+        public Axis[] YAxes { get; set; }
 
         public ISeries[] WaveformSeries
         {
@@ -36,6 +38,39 @@ namespace NVHplatform.ViewModels
                     Fill = null,
                     Stroke = new SolidColorPaint(SKColors.DeepSkyBlue, 1.5f),
                     GeometrySize = 0
+                }
+            };
+
+            XAxes = new Axis[]
+            {
+                new Axis
+                {
+                    Name = "Time (samples)",
+                    NameTextSize = 16,
+                    NamePaint = new SolidColorPaint(SKColors.Black),
+                    LabelsRotation = 0,
+                    TextSize = 13,
+                    Padding = new LiveChartsCore.Drawing.Padding(10, 5),
+                    SeparatorsPaint = new SolidColorPaint(SKColors.LightGray) { StrokeThickness = 0.5f },
+                    TicksPaint = new SolidColorPaint(SKColors.Gray),
+                    LabelsPaint = new SolidColorPaint(SKColors.Black),
+                    DrawTicksPath = true
+                }
+            };
+
+            YAxes = new Axis[]
+            {
+                new Axis
+                {
+                    Name = "Amplitude",
+                    NameTextSize = 16,
+                    NamePaint = new SolidColorPaint(SKColors.Black),
+                    TextSize = 13,
+                    Padding = new LiveChartsCore.Drawing.Padding(10,5),
+                    SeparatorsPaint = new SolidColorPaint(SKColors.LightGray) { StrokeThickness = 0.5f },
+                    TicksPaint = new SolidColorPaint(SKColors.Gray),
+                    LabelsPaint = new SolidColorPaint(SKColors.Black),
+                    DrawTicksPath = true
                 }
             };
         }

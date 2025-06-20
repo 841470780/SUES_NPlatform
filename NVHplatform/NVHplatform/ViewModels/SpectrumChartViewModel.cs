@@ -6,6 +6,7 @@ using SkiaSharp;
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Security.Cryptography;
 
 namespace NVHplatform.ViewModels
 {
@@ -14,6 +15,8 @@ namespace NVHplatform.ViewModels
         private const int MaxPoints = 512;
         private ObservableCollection<double> _spectrumValues = new ObservableCollection<double>();
         public ISeries[] SpectrumSeries { get; set; }
+        public Axis[] XAxes { get; set; }
+        public Axis[] YAxes { get; set; }
 
         public SpectrumChartViewModel()
         {
@@ -25,6 +28,40 @@ namespace NVHplatform.ViewModels
                     Fill = null,
                     Stroke = new SolidColorPaint(SKColors.MediumVioletRed) { StrokeThickness = 1.5f },
                     GeometrySize = 0
+                }
+            };
+
+            XAxes = new Axis[]
+            {
+                new Axis
+                {
+                    Name = "Frequency (Hz)",
+                    NameTextSize = 16,
+                    NamePaint = new SolidColorPaint(SKColors.Black),
+                    LabelsRotation = 0,
+                    TextSize = 13,
+                    Padding = new LiveChartsCore.Drawing.Padding(10, 5),
+                    SeparatorsPaint = new SolidColorPaint(SKColors.LightGray) { StrokeThickness = 0.5f },
+                    TicksPaint = new SolidColorPaint(SKColors.Gray),
+                    LabelsPaint = new SolidColorPaint(SKColors.Black),
+                    DrawTicksPath = true
+                }
+            };
+
+            YAxes = new Axis[]
+            {
+                new Axis
+                {
+                    Name = "Amplitude (dB)",
+                    NameTextSize = 16,
+                    NamePaint = new SolidColorPaint(SKColors.Black),
+                    LabelsRotation = 0,
+                    TextSize = 13,
+                    Padding = new LiveChartsCore.Drawing.Padding(10, 5),
+                    SeparatorsPaint = new SolidColorPaint(SKColors.LightGray) { StrokeThickness = 0.5f },
+                    TicksPaint = new SolidColorPaint(SKColors.Gray),
+                    LabelsPaint = new SolidColorPaint(SKColors.Black),
+                    DrawTicksPath = true
                 }
             };
         }

@@ -6,110 +6,116 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:views="clr-namespace:NVHplatform.Views"
+             xmlns:local="clr-namespace:NVHplatform.Views"
              mc:Ignorable="d">
 
-    <Border BorderBrush="#D3D8D9" BorderThickness="1.5" CornerRadius="15" Padding="10" Margin="10">
-        <Grid Margin="20">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*" />
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
+    <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*" MinWidth="115"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="6*" MinWidth="400"/>
+            </Grid.ColumnDefinitions>
+        <Border BorderBrush="#D3D8D9" BorderThickness="1.5" CornerRadius="15" Padding="10" Margin="15,15,10,15">
+            <Grid Margin="20,10,20,10"  Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
 
-            <!-- 标题 -->
-            <TextBlock Grid.Row="0" Text="输入音频录制" 
-                       FontSize="24" FontWeight="Bold" FontFamily="方正粗黑宋简体"
-                       HorizontalAlignment="Center" Margin="0,0,0,20"/>
+                <!-- 标题 -->
+                <TextBlock Grid.Row="0" Text="输入音频录制" 
+                           FontSize="24" FontWeight="Bold" FontFamily="方正粗黑宋简体"
+                           HorizontalAlignment="Center" Margin="0,0,0,20"/>
 
-            <!-- 音频设备选择 -->
-            <AduSkin:AduGroupBox Grid.Row="1" Header="音频输入设备" Background="WhiteSmoke">
-                <Grid Margin="20,10,20,30">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="4*" />
-                        <ColumnDefinition Width="1.5*" />
-                    </Grid.ColumnDefinitions>
-
-                    <ComboBox Grid.Column="0"
-                              ItemsSource="{Binding AudioDevices}"
-                              DisplayMemberPath="ProductName"
-                              SelectedIndex="{Binding SelectedDeviceIndex}" />
-
-                    <Button Grid.Column="1"
-                            Content="刷新设备"
-                            Padding="10"
-                            Margin="10,0,0,0"
-                            Command="{Binding RefreshDevicesCommand}" />
-                </Grid>
-            </AduSkin:AduGroupBox>
-
-            <!-- 音量调节 -->
-            <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0,10,0,0" HorizontalAlignment="Center">
-                <TextBlock Text="录音音量：" FontSize="14" VerticalAlignment="Center" Margin="0,0,10,0"/>
-                <Slider Minimum="0" Maximum="100" Value="{Binding RecordingVolume}" Width="200"/>
-                <TextBlock Text="{Binding RecordingVolume, StringFormat=' {0:F0}%'}" 
-                           VerticalAlignment="Center" Margin="10,0,0,0"/>
-            </StackPanel>
-
-            <!-- 控制按钮 -->
-            <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10">
-                <Button Content="开始录音"
-                        Width="120" Height="40" Margin="10"
-                        Command="{Binding StartRecordingCommand}" 
-                        IsEnabled="{Binding IsRecording}" />
-                <Button Content="停止录音"
-                        Width="120" Height="40" Margin="10"
-                        Command="{Binding StopRecordingCommand}" 
-                        IsEnabled="{Binding IsRecording}" />
-            </StackPanel>
-
-            <!-- 状态显示 -->
-            <AduSkin:AduGroupBox Grid.Row="4" Header="录音状态" Margin="0,10,0,0" Background="WhiteSmoke">
-                <Grid Margin="10">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-
-                    <TextBlock Grid.Row="0" Text="{Binding StatusText}" FontSize="16" FontFamily="微软雅黑" Margin="5"/>
-
-                    <Grid Grid.Row="1" Margin="5">
+                <!-- 音频设备选择 -->
+                <AduSkin:AduGroupBox Grid.Row="1" Header="音频输入设备" Background="WhiteSmoke">
+                    <Grid Margin="20,10,20,30">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="4*" />
+                            <ColumnDefinition Width="1.5*" />
                         </Grid.ColumnDefinitions>
 
-                        <TextBlock Text="当前音量：" VerticalAlignment="Center" Margin="0,0,10,0"/>
-                        <ProgressBar Height="20" Minimum="0" Maximum="100" Value="{Binding VolumeLevel}" Grid.Column="1"/>
-                        <TextBlock Text="{Binding VolumeLevel, StringFormat=' {0:F0}%'}" 
-                                   VerticalAlignment="Center" Grid.Column="2" Margin="10,0"/>
+                        <ComboBox Grid.Column="0"
+                                  ItemsSource="{Binding AudioDevices}"
+                                  DisplayMemberPath="ProductName"
+                                  SelectedIndex="{Binding SelectedDeviceIndex}" />
+
+                        <Button Grid.Column="1"
+                                Content="刷新设备"
+                                Padding="10"
+                                Margin="10,0,0,0"
+                                Command="{Binding RefreshDevicesCommand}" />
                     </Grid>
-                    <!-- 可选：日志 -->
-                    <!--<RichTextBox Grid.Row="2" Margin="5" IsReadOnly="True" VerticalScrollBarVisibility="Auto">
-                        <FlowDocument>
-                            <Paragraph>
-                                <Run Text="{Binding LogText}" />
-                            </Paragraph>
-                        </FlowDocument>
-                    </RichTextBox>-->
-                </Grid>
-            </AduSkin:AduGroupBox>
+                </AduSkin:AduGroupBox>
 
-            <!-- 保存路径 -->
-            <TextBlock Grid.Row="5" HorizontalAlignment="Left" Margin="0,10">
-                <Hyperlink NavigateUri="." RequestNavigate="Hyperlink_RequestNavigate">
-                    <Run Text="{Binding RecordingSavePath, Mode=OneWay, StringFormat='录音文件保存在：{0}'}"/>
-                </Hyperlink>
-            </TextBlock>
+                <!-- 音量调节 -->
+                <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0,10,0,0" HorizontalAlignment="Center">
+                    <TextBlock Text="录音音量：" FontSize="14" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                    <Slider Minimum="0" Maximum="100" Value="{Binding RecordingVolume}" Width="200"/>
+                    <TextBlock Text="{Binding RecordingVolume, StringFormat=' {0:F0}%'}" 
+                               VerticalAlignment="Center" Margin="10,0,0,0"/>
+                </StackPanel>
 
-            <!-- 图表展示 -->
-            <views:ChartsView Grid.Row="6"
-                  DataContext="{Binding}" />
+                <!-- 控制按钮 -->
+                <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
+                    <Button Content="开始录音"
+                        Width="120" Height="40" Margin="10"
+                        Command="{Binding StartRecordingCommand}" />
+                    <Button Content="停止录音"
+                        Width="120" Height="40" Margin="10"
+                        Command="{Binding StopRecordingCommand}" />
+                </StackPanel>
 
+
+                <!-- 状态显示 -->
+                <AduSkin:AduGroupBox Grid.Row="4" Header="录音状态" Margin="0,5,0,0" Background="WhiteSmoke">
+                    <Grid Margin="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Grid.Row="0" Text="{Binding StatusText}" FontSize="16" FontFamily="宋体" Margin="5,0,5,10"/>
+
+                        <Grid Grid.Row="1" Margin="5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Text="当前音量：" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                            <ProgressBar Height="20" Minimum="0" Maximum="100" Value="{Binding VolumeLevel}" Grid.Column="1"/>
+                            <TextBlock Text="{Binding VolumeLevel, StringFormat=' {0:F0}%'}" 
+                                       VerticalAlignment="Center" Grid.Column="2" Margin="10,0"/>
+                        </Grid>
+
+                        <local:LogView DataContext="{Binding Logger}" Grid.Row="2" />
+
+                    </Grid>
+                </AduSkin:AduGroupBox>
+
+                <!-- 保存路径 -->
+                <TextBlock Grid.Row="5" HorizontalAlignment="Left" Margin="0,10">
+                    <Hyperlink NavigateUri="." RequestNavigate="Hyperlink_RequestNavigate">
+                        <Run Text="{Binding RecordingSavePath, Mode=OneWay, StringFormat='录音文件保存在：{0}'}"/>
+                    </Hyperlink>
+                </TextBlock>
+            </Grid>
+        </Border>
+
+        <Grid  Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <views:ChartsView Grid.Row="0" DataContext="{Binding}" />
+            </Grid>
         </Grid>
-    </Border>
+    
 </UserControl>
