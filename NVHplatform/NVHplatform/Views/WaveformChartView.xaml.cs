@@ -10,8 +10,6 @@ namespace NVHplatform.Views
         public WaveformChartView()
         {
             InitializeComponent();
-            ViewModel = new WaveformChartViewModel();
-            DataContext = ViewModel;
         }
 
         public void ReceiveWaveformSamples(float[] samples)

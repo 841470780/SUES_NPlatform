@@ -68,8 +68,14 @@ namespace NVHplatform.ViewModels
 
         public void UpdateSpectrum(float[] samples)
         {
+            if (samples == null) return;
+
             int fftLength = 1024;
             var fftBuffer = new NAudio.Dsp.Complex[fftLength];
+
+            // 必须为每个元素 new 一个 Complex 实例！
+            for (int i = 0; i < fftLength; i++)
+                fftBuffer[i] = new NAudio.Dsp.Complex();
 
             for (int i = 0; i < fftLength; i++)
             {
@@ -81,7 +87,11 @@ namespace NVHplatform.ViewModels
 
             NAudio.Dsp.FastFourierTransform.FFT(true, (int)Math.Log(fftLength, 2), fftBuffer);
 
-            _spectrumValues.Clear();
+            if (_spectrumValues == null)
+                _spectrumValues = new ObservableCollection<double>();
+            else
+                _spectrumValues.Clear();
+
             for (int i = 0; i < fftLength / 2; i++)
             {
                 double magnitude = 20 * Math.Log10(Math.Sqrt(fftBuffer[i].X * fftBuffer[i].X +
@@ -89,9 +99,20 @@ namespace NVHplatform.ViewModels
                 _spectrumValues.Add(magnitude);
             }
 
-            ((LineSeries<double>)SpectrumSeries[0]).Values = _spectrumValues;
+            // 如果 SpectrumSeries[0] 还未初始化，则提前 new 一下
+            var line = SpectrumSeries[0] as LineSeries<double>;
+            if (line != null)
+                line.Values = _spectrumValues;
+
             OnPropertyChanged(nameof(SpectrumSeries));
         }
+
+        public void ClearSpectrum()
+        {
+            _spectrumValues.Clear();
+            OnPropertyChanged(nameof(SpectrumSeries));
+        }
+
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged(string name) =>

@@ -11,6 +11,9 @@ namespace NVHplatform.Models
 {
     public class AudioRecorder
     {
+        public event EventHandler<string> RecordingFileSaved;
+        public string LatestFilePath { get; private set; }
+
         private WaveInEvent waveIn;
         private WaveFileWriter writer;
         public int DeviceNumber { get; set; } = 0;
@@ -28,6 +31,7 @@ namespace NVHplatform.Models
 
                 string timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
                 string outputFilePath = Path.Combine(folderPath, $"recorded_{timestamp}.wav");
+                LatestFilePath = outputFilePath;
 
                 waveIn = new WaveInEvent();
                 waveIn.DeviceNumber = DeviceNumber;
@@ -105,6 +109,7 @@ namespace NVHplatform.Models
             writer?.Dispose();
             writer = null;
             waveIn?.Dispose();
+            RecordingFileSaved?.Invoke(this, LatestFilePath);
         }
 
         public void StopRecording()

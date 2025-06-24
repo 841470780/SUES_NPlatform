@@ -109,4 +109,8 @@ D:\C#_Programs\NVHplatform\NVHplatform\obj\Debug\NVHplatform.csproj.CoreCompileI
 D:\C#_Programs\NVHplatform\NVHplatform\obj\Debug\NVHplatf.1DC69808.Up2Date
 D:\C#_Programs\NVHplatform\NVHplatform\obj\Debug\NVHplatform.exe
 D:\C#_Programs\NVHplatform\NVHplatform\obj\Debug\NVHplatform.pdb
+D:\C#_Programs\NVHplatform\NVHplatform\obj\Debug\Views\AudioFileInfo.g.cs
+D:\C#_Programs\NVHplatform\NVHplatform\obj\Debug\Views\AudioFileInfo.baml
 D:\C#_Programs\NVHplatform\NVHplatform\obj\Debug\NVHplatform.exe.config
+D:\C#_Programs\NVHplatform\NVHplatform\obj\Debug\Views\ChartTypeDialog.baml
+D:\C#_Programs\NVHplatform\NVHplatform\obj\Debug\Views\ChartTypeDialog.g.cs

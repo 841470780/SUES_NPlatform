@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\C#_Programs\NVHplatform\NVHplatform\App.xaml
-101478855199
+12-1992644049
 
-26-306690859
+321720578707
 171821520470
-MainWindow.xaml;test.xaml;Views\AnalysisView.xaml;Views\ChartsView.xaml;Views\FluctuationChartView.xaml;Views\HistoryPage.xaml;Views\LogView.xaml;Views\RecordingView.xaml;Views\SpectrumChartView.xaml;Views\WaveformChartView.xaml;
+MainWindow.xaml;test.xaml;Views\AnalysisView.xaml;Views\AudioFileInfo.xaml;Views\ChartsView.xaml;Views\ChartTypeDialog.xaml;Views\FluctuationChartView.xaml;Views\HistoryPage.xaml;Views\LogView.xaml;Views\RecordingView.xaml;Views\SpectrumChartView.xaml;Views\WaveformChartView.xaml;
 
 False
 

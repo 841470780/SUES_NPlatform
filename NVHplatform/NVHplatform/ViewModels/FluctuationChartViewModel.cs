@@ -3,6 +3,7 @@ using LiveChartsCore.SkiaSharpView;
 using LiveChartsCore.SkiaSharpView.Painting;
 using SkiaSharp;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
@@ -14,30 +15,29 @@ namespace NVHplatform.ViewModels
     {
         private const int MaxPoints = 200;
 
-        private ObservableCollection<double> _fluctuationValues = new ObservableCollection<double>();
-
-        public ObservableCollection<double> FluctuationValues
+        private ISeries[] _fluctuationSeries;
+        public ISeries[] FluctuationSeries
         {
-            get => _fluctuationValues;
+            get => _fluctuationSeries;
             set
             {
-                _fluctuationValues = value;
+                _fluctuationSeries = value;
                 OnPropertyChanged();
             }
         }
-
-        public ISeries[] FluctuationSeries { get; set; }
 
         public Axis[] XAxes { get; set; }
         public Axis[] YAxes { get; set; }
 
         public FluctuationChartViewModel()
         {
+            var values = new ObservableCollection<double>();
+
             FluctuationSeries = new ISeries[]
             {
                 new LineSeries<double>
                 {
-                    Values = FluctuationValues,
+                    Values = values,
                     GeometrySize = 0,
                     Fill = null,
                     Stroke = new SolidColorPaint(SKColors.Crimson, 2),
@@ -46,7 +46,7 @@ namespace NVHplatform.ViewModels
                 }
             };
 
-            XAxes = new[]
+            XAxes = new Axis[]
             {
                 new Axis
                 {
@@ -63,7 +63,7 @@ namespace NVHplatform.ViewModels
                 }
             };
 
-            YAxes = new[]
+            YAxes = new Axis[]
             {
                 new Axis
                 {
@@ -81,18 +81,61 @@ namespace NVHplatform.ViewModels
             };
         }
 
+        /// <summary>
+        /// 文件导入或分析时刷新波动曲线（整批替换）
+        /// </summary>
         public void UpdateFluctuation(float[] samples)
         {
             if (samples == null || samples.Length == 0) return;
 
-            double rms = Math.Sqrt(samples.Average(s => s * s));
+            int winSize = 1024;
+            var rms = new ObservableCollection<double>();
+            for (int i = 0; i < samples.Length; i += winSize)
+            {
+                double sum = 0;
+                for (int j = 0; j < winSize && (i + j) < samples.Length; j++)
+                    sum += samples[i + j] * samples[i + j];
+                rms.Add(Math.Sqrt(sum / winSize));
+            }
 
             App.Current.Dispatcher.Invoke(() =>
             {
-                if (FluctuationValues.Count >= MaxPoints)
-                    FluctuationValues.RemoveAt(0);
-                FluctuationValues.Add(rms);
+                var series = FluctuationSeries.FirstOrDefault() as LineSeries<double>;
+                if (series != null)
+                {
+                    series.Values = rms;
+                }
             });
+
+            System.Diagnostics.Debug.WriteLine($"[FluctuationChart] Update 完成，共 {rms.Count} 点");
+        }
+
+        /// 实时录音追加单个点（需要 ObservableCollection 支持）
+        public void AddRealtimeFluctuationPoint(double rms)
+        {
+            var line = FluctuationSeries.FirstOrDefault() as LineSeries<double>;
+            if (line == null) return;
+
+            if (line.Values is ObservableCollection<double> values)
+            {
+                App.Current.Dispatcher.Invoke(() =>
+                {
+                    if (values.Count >= MaxPoints)
+                        values.RemoveAt(0);
+                    values.Add(rms);
+                });
+            }
+        }
+        public void ClearFluctuation()
+        {
+            if (FluctuationSeries.Length > 0 && FluctuationSeries[0] is LineSeries<double> line)
+            {
+                if (line.Values is IList<double> values)
+                {
+                    values.Clear();
+                    OnPropertyChanged(nameof(FluctuationSeries));
+                }
+            }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

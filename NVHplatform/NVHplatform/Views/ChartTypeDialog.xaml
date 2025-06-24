@@ -1,0 +1,11 @@
+﻿<Window x:Class="NVHplatform.Views.ChartTypeDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="选择图表类型" WindowStartupLocation="CenterOwner" SizeToContent="WidthAndHeight" ResizeMode="NoResize" WindowStyle="ToolWindow">
+    <StackPanel Margin="20" Width="180">
+        <TextBlock Text="请选择要添加的图表类型：" Margin="0,0,0,12"/>
+        <Button Content="波形图" Margin="0,0,0,6" Click="Waveform_Click"/>
+        <Button Content="频谱图" Margin="0,0,0,6" Click="Spectrum_Click"/>
+        <Button Content="波动强度图" Click="Fluctuation_Click"/>
+    </StackPanel>
+</Window>

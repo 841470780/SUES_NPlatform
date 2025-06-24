@@ -8,24 +8,17 @@
     <Grid Margin="20">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="2*"/>
-            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <!-- 导入按钮 -->
         <Grid Grid.Row="0">
             <Button Content="导入音频文件" Width="150" Height="40" Margin="0,0,0,10"
-                    Click="OnImportAudioClick"/>
+                    Command="{Binding ImportAudioCommand}" />
         </Grid>
 
         <!-- 波形图复用组件 -->
-        <Grid Grid.Row="1">
-            <views:WaveformChartView x:Name="WaveformChartView"/>
-        </Grid>
+        <views:ChartsView DataContext="{Binding ChartsVM}" Grid.Row="1"/>
 
-        <!-- 频谱图复用组件 -->
-        <Grid Grid.Row="2">
-            <views:SpectrumChartView x:Name="SpectrumChartView"/>
-        </Grid>
     </Grid>
 </UserControl>

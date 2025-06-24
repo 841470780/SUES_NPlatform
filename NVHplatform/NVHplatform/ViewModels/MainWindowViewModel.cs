@@ -30,11 +30,12 @@ namespace NVHplatform.ViewModels
 
         public MainWindowViewModel()
         {
+            var chartsVM = new ChartsViewModel();
             WaveformVM = new WaveformChartViewModel();
             SpectrumVM = new SpectrumChartViewModel();
             FluctuationVM = new FluctuationChartViewModel();
 
-            RecordingVM = new RecordingViewModel(WaveformVM, SpectrumVM, FluctuationVM);
+            RecordingVM = new RecordingViewModel(chartsVM, WaveformVM, SpectrumVM, FluctuationVM);
             AnalysisVM = new AnalysisPageViewModel();
 
             // 只实例化一次页面视图，并绑定 ViewModel

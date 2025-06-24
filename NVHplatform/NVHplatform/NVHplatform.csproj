@@ -66,12 +66,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converters\NullToVisibilityConverter.cs" />
     <Compile Include="Models\AudioRecorder.cs" />
+    <Compile Include="Models\AudioFileInfo.cs" />
     <Compile Include="Models\LogMessage.cs" />
     <Compile Include="test.xaml.cs">
       <DependentUpon>test.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\AnalysisPageViewModel.cs" />
+    <Compile Include="ViewModels\AudioFileInfoViewModel.cs" />
+    <Compile Include="ViewModels\ChartsViewModel.cs" />
     <Compile Include="ViewModels\FluctuationChartViewModel.cs" />
     <Compile Include="ViewModels\HistoryPageViewModel.cs" />
     <Compile Include="ViewModels\LogViewModel.cs" />
@@ -83,8 +87,14 @@
     <Compile Include="Views\AnalysisView.xaml.cs">
       <DependentUpon>AnalysisView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\AudioFileInfo.xaml.cs">
+      <DependentUpon>AudioFileInfo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ChartsView.xaml.cs">
       <DependentUpon>ChartsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ChartTypeDialog.xaml.cs">
+      <DependentUpon>ChartTypeDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\FluctuationChartView.xaml.cs">
       <DependentUpon>FluctuationChartView.xaml</DependentUpon>
@@ -124,7 +134,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\AudioFileInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ChartsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ChartTypeDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -340,6 +358,12 @@
     <PackageReference Include="System.ValueTuple">
       <Version>4.5.0</Version>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Windows\resources\icons\关闭.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Windows\resources\icons\el-hg-icon-save.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

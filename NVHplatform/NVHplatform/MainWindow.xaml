@@ -13,7 +13,7 @@
         Title="上工程NVH团队-音频分析平台"
         Height="900" Width="1440"
         FontFamily="黑体"
-        MinHeight="675.5" MinWidth="1200"
+        MinHeight="675" MinWidth="1200"
         ResizeMode="CanResizeWithGrip"
         WindowStartupLocation="CenterScreen"
         BorderThickness="1" BorderBrush="#FF454545"

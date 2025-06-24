@@ -11,6 +11,9 @@ namespace NVHplatform.ViewModels
 {
     public class RecordingViewModel : ObservableObject
     {
+        public ChartsViewModel ChartsVM { get; }
+        //录音信息
+        public AudioFileInfoViewModel AudioFileInfoVM { get; } = new AudioFileInfoViewModel();
         //日志
         public LogViewModel Logger { get; } = new LogViewModel();
         // 图表 ViewModel
@@ -85,10 +88,12 @@ namespace NVHplatform.ViewModels
         }
 
         public RecordingViewModel(
+            ChartsViewModel chartsVM,
             WaveformChartViewModel waveformVM,
             SpectrumChartViewModel spectrumVM,
             FluctuationChartViewModel fluctuationVM)
         {
+            ChartsVM = chartsVM;
             WaveformVM = waveformVM;
             SpectrumVM = spectrumVM;
             FluctuationVM = fluctuationVM;
@@ -101,6 +106,7 @@ namespace NVHplatform.ViewModels
             recorder = new AudioRecorder();
             recorder.RawAudioBufferAvailable += OnRawAudioBufferAvailable;
             recorder.VolumeLevelChanged += OnVolumeLevelChanged;
+            recorder.RecordingFileSaved += OnRecordingFileSaved;
 
             LoadAudioDevices();
             SetRecordingVolume(RecordingVolume);
@@ -148,11 +154,10 @@ namespace NVHplatform.ViewModels
         {
             App.Current.Dispatcher.Invoke(() =>
             {
-                WaveformVM?.UpdateWaveform(samples);
-                SpectrumVM?.UpdateSpectrum(samples);
-                FluctuationVM?.UpdateFluctuation(samples);
+                ChartsVM?.UpdateAllCharts(samples); 
             });
         }
+
 
 
         // 开始录音添加日志
@@ -189,9 +194,7 @@ namespace NVHplatform.ViewModels
             try
             {
                 recorder.StopRecording();
-                IsRecording = false;
-                StatusText = "录音已停止";
-                Logger.AddLog("停止录音", LogLevel.Info);
+                Logger.AddLog("停止录音命令已发送", LogLevel.Info);
             }
             catch (Exception ex)
             {
@@ -199,6 +202,42 @@ namespace NVHplatform.ViewModels
                 StatusText = msg;
                 Logger.AddLog(msg, LogLevel.Error);
             }
+        }
+
+        //停止录音事件处理函数(防止bug)
+        private void OnRecordingFileSaved(object sender, string filePath)
+        {
+            App.Current.Dispatcher.Invoke(() =>
+            {
+                IsRecording = false;
+                StatusText = "录音已停止";
+                Logger.AddLog("录音已成功保存", LogLevel.Info);
+                UpdateAudioFileInfo(filePath);
+            });
+        }
+
+
+        //更新录音文件信息
+        public void UpdateAudioFileInfo(string filePath)
+        {
+            if (string.IsNullOrEmpty(filePath) || !File.Exists(filePath))
+            {
+                AudioFileInfoVM.CurrentFileInfo = null;
+                return;
+            }
+
+            using var reader = new AudioFileReader(filePath);
+            AudioFileInfoVM.CurrentFileInfo = new AudioFileInfo
+            {
+                SourceType = "录音",
+                FileName = Path.GetFileName(filePath),
+                FilePath = filePath,
+                Duration = reader.TotalTime,
+                SampleRate = reader.WaveFormat.SampleRate,
+                Channels = reader.WaveFormat.Channels,
+                BitRate = reader.WaveFormat.BitsPerSample * reader.WaveFormat.SampleRate * reader.WaveFormat.Channels,
+                Format = reader.WaveFormat.Encoding.ToString()
+            };
         }
 
         // 刷新设备添加日志
