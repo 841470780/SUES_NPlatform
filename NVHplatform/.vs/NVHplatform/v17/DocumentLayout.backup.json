@@ -3,36 +3,136 @@
   "WorkspaceRootPath": "D:\\C#_Programs\\NVHplatform\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|d:\\c#_programs\\nvhplatform\\nvhplatform\\views\\chartsview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|d:\\c#_programs\\nvhplatform\\nvhplatform\\views\\fileorganizeview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|solutionrelative:nvhplatform\\views\\fileorganizeview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|D:\\C#_Programs\\NVHplatform\\nvhplatform\\views\\historymainview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|solutionrelative:nvhplatform\\views\\historymainview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|D:\\C#_Programs\\NVHplatform\\nvhplatform\\views\\historymainview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|solutionrelative:nvhplatform\\views\\historymainview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|D:\\C#_Programs\\NVHplatform\\nvhplatform\\viewmodels\\historyviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|solutionrelative:nvhplatform\\viewmodels\\historyviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|D:\\C#_Programs\\NVHplatform\\nvhplatform\\views\\historyview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|solutionrelative:nvhplatform\\views\\historyview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|D:\\C#_Programs\\NVHplatform\\nvhplatform\\views\\fileorganizeview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|solutionrelative:nvhplatform\\views\\fileorganizeview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|D:\\C#_Programs\\NVHplatform\\nvhplatform\\views\\historyview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|solutionrelative:nvhplatform\\views\\historyview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|D:\\C#_Programs\\NVHplatform\\nvhplatform\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|solutionrelative:nvhplatform\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|D:\\C#_Programs\\NVHplatform\\nvhplatform\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|solutionrelative:nvhplatform\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|D:\\C#_Programs\\NVHplatform\\nvhplatform\\viewmodels\\mainwindowviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|solutionrelative:nvhplatform\\viewmodels\\mainwindowviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|D:\\C#_Programs\\NVHplatform\\nvhplatform\\viewmodels\\fileorganizeviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|solutionrelative:nvhplatform\\viewmodels\\fileorganizeviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|D:\\C#_Programs\\NVHplatform\\nvhplatform\\views\\chartsview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|solutionrelative:nvhplatform\\views\\chartsview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|d:\\c#_programs\\nvhplatform\\nvhplatform\\models\\audiorecorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|solutionrelative:nvhplatform\\models\\audiorecorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|d:\\c#_programs\\nvhplatform\\nvhplatform\\views\\chartsview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|solutionrelative:nvhplatform\\views\\chartsview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|d:\\c#_programs\\nvhplatform\\nvhplatform\\viewmodels\\chartsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|D:\\C#_Programs\\NVHplatform\\nvhplatform\\viewmodels\\chartsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|solutionrelative:nvhplatform\\viewmodels\\chartsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|d:\\c#_programs\\nvhplatform\\nvhplatform\\models\\audiofileinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|solutionrelative:nvhplatform\\models\\audiofileinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|D:\\C#_Programs\\NVHplatform\\nvhplatform\\views\\chartsview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|solutionrelative:nvhplatform\\views\\chartsview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|d:\\c#_programs\\nvhplatform\\nvhplatform\\viewmodels\\waveformchartviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|solutionrelative:nvhplatform\\viewmodels\\waveformchartviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|D:\\C#_Programs\\NVHplatform\\nvhplatform\\viewmodels\\spectrumchartviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|solutionrelative:nvhplatform\\viewmodels\\spectrumchartviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|d:\\c#_programs\\nvhplatform\\nvhplatform\\viewmodels\\fluctuationchartviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|D:\\C#_Programs\\NVHplatform\\nvhplatform\\views\\aweightingchartview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|solutionrelative:nvhplatform\\views\\aweightingchartview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|D:\\C#_Programs\\NVHplatform\\nvhplatform\\views\\spectrumchartview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|solutionrelative:nvhplatform\\views\\spectrumchartview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|D:\\C#_Programs\\NVHplatform\\nvhplatform\\viewmodels\\aweightingchartviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|solutionrelative:nvhplatform\\viewmodels\\aweightingchartviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|D:\\C#_Programs\\NVHplatform\\nvhplatform\\views\\analysisview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|solutionrelative:nvhplatform\\views\\analysisview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|D:\\C#_Programs\\NVHplatform\\nvhplatform\\viewmodels\\analysispageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|solutionrelative:nvhplatform\\viewmodels\\analysispageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|D:\\C#_Programs\\NVHplatform\\nvhplatform\\viewmodels\\recordingviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|solutionrelative:nvhplatform\\viewmodels\\recordingviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|D:\\C#_Programs\\NVHplatform\\nvhplatform\\viewmodels\\audiofileinfoviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|solutionrelative:nvhplatform\\viewmodels\\audiofileinfoviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|D:\\C#_Programs\\NVHplatform\\nvhplatform\\viewmodels\\fluctuationchartviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|solutionrelative:nvhplatform\\viewmodels\\fluctuationchartviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|d:\\c#_programs\\nvhplatform\\nvhplatform\\viewmodels\\spectrumchartviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|solutionrelative:nvhplatform\\viewmodels\\spectrumchartviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|D:\\C#_Programs\\NVHplatform\\nvhplatform\\views\\aweightingchartview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|solutionrelative:nvhplatform\\views\\aweightingchartview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|D:\\C#_Programs\\NVHplatform\\nvhplatform\\models\\audiorecorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|solutionrelative:nvhplatform\\models\\audiorecorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|D:\\C#_Programs\\NVHplatform\\nvhplatform\\interop\\aweightinginterop.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|solutionrelative:nvhplatform\\interop\\aweightinginterop.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|D:\\C#_Programs\\NVHplatform\\nvhplatform\\views\\analysisview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|solutionrelative:nvhplatform\\views\\analysisview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|D:\\C#_Programs\\NVHplatform\\nvhplatform\\views\\audiofileinfo.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|solutionrelative:nvhplatform\\views\\audiofileinfo.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|D:\\C#_Programs\\NVHplatform\\nvhplatform\\views\\audiofileinfo.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|solutionrelative:nvhplatform\\views\\audiofileinfo.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|D:\\C#_Programs\\NVHplatform\\nvhplatform\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|solutionrelative:nvhplatform\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|D:\\C#_Programs\\NVHplatform\\nvhplatform\\views\\recordingview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|solutionrelative:nvhplatform\\views\\recordingview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|D:\\C#_Programs\\NVHplatform\\nvhplatform\\views\\inputfilenamedialog.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|solutionrelative:nvhplatform\\views\\inputfilenamedialog.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|D:\\C#_Programs\\NVHplatform\\nvhplatform\\views\\inputfilenamedialog.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{3F377C6E-4BDC-4DA7-8B9E-9BBB5E3B542E}|NVHplatform\\NVHplatform.csproj|solutionrelative:nvhplatform\\views\\inputfilenamedialog.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,106 +146,389 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AudioRecorder.cs",
-              "DocumentMoniker": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\Models\\AudioRecorder.cs",
-              "RelativeDocumentMoniker": "NVHplatform\\Models\\AudioRecorder.cs",
-              "ToolTip": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\Models\\AudioRecorder.cs",
-              "RelativeToolTip": "NVHplatform\\Models\\AudioRecorder.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABkAAAAJAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "HistoryMainView.xaml.cs",
+              "DocumentMoniker": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\Views\\HistoryMainView.xaml.cs",
+              "RelativeDocumentMoniker": "NVHplatform\\Views\\HistoryMainView.xaml.cs",
+              "ToolTip": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\Views\\HistoryMainView.xaml.cs",
+              "RelativeToolTip": "NVHplatform\\Views\\HistoryMainView.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvxMAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-24T09:03:22.218Z",
+              "WhenOpened": "2025-07-02T12:34:58.477Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "HistoryMainView.xaml",
+              "DocumentMoniker": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\Views\\HistoryMainView.xaml",
+              "RelativeDocumentMoniker": "NVHplatform\\Views\\HistoryMainView.xaml",
+              "ToolTip": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\Views\\HistoryMainView.xaml",
+              "RelativeToolTip": "NVHplatform\\Views\\HistoryMainView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-07-02T12:34:02.753Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "NVHplatform\\MainWindow.xaml",
+              "ToolTip": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\MainWindow.xaml",
+              "RelativeToolTip": "NVHplatform\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-07-01T07:39:52.956Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "HistoryViewModel.cs",
+              "DocumentMoniker": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\ViewModels\\HistoryViewModel.cs",
+              "RelativeDocumentMoniker": "NVHplatform\\ViewModels\\HistoryViewModel.cs",
+              "ToolTip": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\ViewModels\\HistoryViewModel.cs",
+              "RelativeToolTip": "NVHplatform\\ViewModels\\HistoryViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-02T02:39:05.457Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "NVHplatform\\MainWindow.xaml.cs",
+              "ToolTip": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\MainWindow.xaml.cs",
+              "RelativeToolTip": "NVHplatform\\MainWindow.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-02T02:35:23.644Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FileOrganizeView.xaml",
+              "DocumentMoniker": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\Views\\FileOrganizeView.xaml",
+              "RelativeDocumentMoniker": "NVHplatform\\Views\\FileOrganizeView.xaml",
+              "ToolTip": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\Views\\FileOrganizeView.xaml",
+              "RelativeToolTip": "NVHplatform\\Views\\FileOrganizeView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-07-02T12:12:39.443Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
+              "Title": "HistoryView.xaml.cs",
+              "DocumentMoniker": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\Views\\HistoryView.xaml.cs",
+              "RelativeDocumentMoniker": "NVHplatform\\Views\\HistoryView.xaml.cs",
+              "ToolTip": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\Views\\HistoryView.xaml.cs",
+              "RelativeToolTip": "NVHplatform\\Views\\HistoryView.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvxUAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-02T02:34:33.179Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "HistoryView.xaml",
+              "DocumentMoniker": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\Views\\HistoryView.xaml",
+              "RelativeDocumentMoniker": "NVHplatform\\Views\\HistoryView.xaml",
+              "ToolTip": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\Views\\HistoryView.xaml",
+              "RelativeToolTip": "NVHplatform\\Views\\HistoryView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-07-02T02:34:22.09Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "FileOrganizeView.xaml.cs",
+              "DocumentMoniker": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\Views\\FileOrganizeView.xaml.cs",
+              "RelativeDocumentMoniker": "NVHplatform\\Views\\FileOrganizeView.xaml.cs",
+              "ToolTip": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\Views\\FileOrganizeView.xaml.cs",
+              "RelativeToolTip": "NVHplatform\\Views\\FileOrganizeView.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-02T12:12:59.814Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "MainWindowViewModel.cs",
+              "DocumentMoniker": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\ViewModels\\MainWindowViewModel.cs",
+              "RelativeDocumentMoniker": "NVHplatform\\ViewModels\\MainWindowViewModel.cs",
+              "ToolTip": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\ViewModels\\MainWindowViewModel.cs",
+              "RelativeToolTip": "NVHplatform\\ViewModels\\MainWindowViewModel.cs",
+              "ViewState": "AgIAADcAAAAAAAAAAAAmwD8AAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-02T02:26:48.221Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ChartsView.xaml.cs",
+              "DocumentMoniker": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\Views\\ChartsView.xaml.cs",
+              "RelativeDocumentMoniker": "NVHplatform\\Views\\ChartsView.xaml.cs",
+              "ToolTip": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\Views\\ChartsView.xaml.cs",
+              "RelativeToolTip": "NVHplatform\\Views\\ChartsView.xaml.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAQwDQAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-02T12:09:56.45Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "FileOrganizeViewModel.cs",
+              "DocumentMoniker": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\ViewModels\\FileOrganizeViewModel.cs",
+              "RelativeDocumentMoniker": "NVHplatform\\ViewModels\\FileOrganizeViewModel.cs",
+              "ToolTip": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\ViewModels\\FileOrganizeViewModel.cs",
+              "RelativeToolTip": "NVHplatform\\ViewModels\\FileOrganizeViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-02T12:24:11.273Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "AWeightingChartView.xaml",
+              "DocumentMoniker": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\Views\\AWeightingChartView.xaml",
+              "RelativeDocumentMoniker": "NVHplatform\\Views\\AWeightingChartView.xaml",
+              "ToolTip": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\Views\\AWeightingChartView.xaml",
+              "RelativeToolTip": "NVHplatform\\Views\\AWeightingChartView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-07-02T08:59:08.392Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "AWeightingChartViewModel.cs",
+              "DocumentMoniker": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\ViewModels\\AWeightingChartViewModel.cs",
+              "RelativeDocumentMoniker": "NVHplatform\\ViewModels\\AWeightingChartViewModel.cs",
+              "ToolTip": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\ViewModels\\AWeightingChartViewModel.cs",
+              "RelativeToolTip": "NVHplatform\\ViewModels\\AWeightingChartViewModel.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAswBkAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-02T08:53:56.52Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
               "Title": "ChartsView.xaml",
               "DocumentMoniker": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\Views\\ChartsView.xaml",
               "RelativeDocumentMoniker": "NVHplatform\\Views\\ChartsView.xaml",
               "ToolTip": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\Views\\ChartsView.xaml",
               "RelativeToolTip": "NVHplatform\\Views\\ChartsView.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-06-24T08:53:26.363Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-02T02:26:57.856Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 14,
               "Title": "SpectrumChartViewModel.cs",
               "DocumentMoniker": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\ViewModels\\SpectrumChartViewModel.cs",
               "RelativeDocumentMoniker": "NVHplatform\\ViewModels\\SpectrumChartViewModel.cs",
               "ToolTip": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\ViewModels\\SpectrumChartViewModel.cs",
               "RelativeToolTip": "NVHplatform\\ViewModels\\SpectrumChartViewModel.cs",
-              "ViewState": "AgIAAFoAAAAAAAAAAAAcwHIAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-24T08:51:32.209Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-02T09:25:47.621Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "WaveformChartViewModel.cs",
-              "DocumentMoniker": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\ViewModels\\WaveformChartViewModel.cs",
-              "RelativeDocumentMoniker": "NVHplatform\\ViewModels\\WaveformChartViewModel.cs",
-              "ToolTip": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\ViewModels\\WaveformChartViewModel.cs",
-              "RelativeToolTip": "NVHplatform\\ViewModels\\WaveformChartViewModel.cs",
-              "ViewState": "AgIAAFMAAAAAAAAAAAAowHMAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-24T08:51:22.72Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 12,
               "Title": "ChartsViewModel.cs",
               "DocumentMoniker": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\ViewModels\\ChartsViewModel.cs",
               "RelativeDocumentMoniker": "NVHplatform\\ViewModels\\ChartsViewModel.cs",
               "ToolTip": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\ViewModels\\ChartsViewModel.cs",
               "RelativeToolTip": "NVHplatform\\ViewModels\\ChartsViewModel.cs",
-              "ViewState": "AgIAAIEAAAAAAAAAAAAIwKEAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAKIAAAAAAAAAAAAAALEAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-24T08:51:05.578Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-02T08:59:59.012Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ChartsView.xaml.cs",
-              "DocumentMoniker": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\Views\\ChartsView.xaml.cs",
-              "RelativeDocumentMoniker": "NVHplatform\\Views\\ChartsView.xaml.cs",
-              "ToolTip": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\Views\\ChartsView.xaml.cs",
-              "RelativeToolTip": "NVHplatform\\Views\\ChartsView.xaml.cs",
-              "ViewState": "AgIAAD4AAAAAAAAAAAAowFUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-24T12:25:08.293Z",
-              "EditorCaption": ""
+              "DocumentIndex": 16,
+              "Title": "SpectrumChartView.xaml",
+              "DocumentMoniker": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\Views\\SpectrumChartView.xaml",
+              "RelativeDocumentMoniker": "NVHplatform\\Views\\SpectrumChartView.xaml",
+              "ToolTip": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\Views\\SpectrumChartView.xaml",
+              "RelativeToolTip": "NVHplatform\\Views\\SpectrumChartView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-07-02T09:26:27.479Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "AudioFileInfo.cs",
-              "DocumentMoniker": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\Models\\AudioFileInfo.cs",
-              "RelativeDocumentMoniker": "NVHplatform\\Models\\AudioFileInfo.cs",
-              "ToolTip": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\Models\\AudioFileInfo.cs",
-              "RelativeToolTip": "NVHplatform\\Models\\AudioFileInfo.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-24T09:04:14.937Z",
-              "EditorCaption": ""
+              "DocumentIndex": 18,
+              "Title": "AnalysisView.xaml",
+              "DocumentMoniker": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\Views\\AnalysisView.xaml",
+              "RelativeDocumentMoniker": "NVHplatform\\Views\\AnalysisView.xaml",
+              "ToolTip": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\Views\\AnalysisView.xaml",
+              "RelativeToolTip": "NVHplatform\\Views\\AnalysisView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-07-02T02:27:02.433Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 21,
+              "Title": "AudioFileInfoViewModel.cs",
+              "DocumentMoniker": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\ViewModels\\AudioFileInfoViewModel.cs",
+              "RelativeDocumentMoniker": "NVHplatform\\ViewModels\\AudioFileInfoViewModel.cs",
+              "ToolTip": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\ViewModels\\AudioFileInfoViewModel.cs",
+              "RelativeToolTip": "NVHplatform\\ViewModels\\AudioFileInfoViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-02T02:37:44.708Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "RecordingViewModel.cs",
+              "DocumentMoniker": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\ViewModels\\RecordingViewModel.cs",
+              "RelativeDocumentMoniker": "NVHplatform\\ViewModels\\RecordingViewModel.cs",
+              "ToolTip": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\ViewModels\\RecordingViewModel.cs",
+              "RelativeToolTip": "NVHplatform\\ViewModels\\RecordingViewModel.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA4AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-01T07:17:20.213Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "AnalysisPageViewModel.cs",
+              "DocumentMoniker": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\ViewModels\\AnalysisPageViewModel.cs",
+              "RelativeDocumentMoniker": "NVHplatform\\ViewModels\\AnalysisPageViewModel.cs",
+              "ToolTip": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\ViewModels\\AnalysisPageViewModel.cs",
+              "RelativeToolTip": "NVHplatform\\ViewModels\\AnalysisPageViewModel.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAkwB8AAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-02T09:09:51.98Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "AWeightingInterop.cs",
+              "DocumentMoniker": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\Interop\\AWeightingInterop.cs",
+              "RelativeDocumentMoniker": "NVHplatform\\Interop\\AWeightingInterop.cs",
+              "ToolTip": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\Interop\\AWeightingInterop.cs",
+              "RelativeToolTip": "NVHplatform\\Interop\\AWeightingInterop.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-02T07:48:18.477Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "AWeightingChartView.xaml.cs",
+              "DocumentMoniker": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\Views\\AWeightingChartView.xaml.cs",
+              "RelativeDocumentMoniker": "NVHplatform\\Views\\AWeightingChartView.xaml.cs",
+              "ToolTip": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\Views\\AWeightingChartView.xaml.cs",
+              "RelativeToolTip": "NVHplatform\\Views\\AWeightingChartView.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-02T08:59:22.383Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
               "Title": "FluctuationChartViewModel.cs",
               "DocumentMoniker": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\ViewModels\\FluctuationChartViewModel.cs",
               "RelativeDocumentMoniker": "NVHplatform\\ViewModels\\FluctuationChartViewModel.cs",
               "ToolTip": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\ViewModels\\FluctuationChartViewModel.cs",
               "RelativeToolTip": "NVHplatform\\ViewModels\\FluctuationChartViewModel.cs",
-              "ViewState": "AgIAADsAAAAAAAAAAAAYwG4AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAcwFUAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-24T08:51:41.608Z",
+              "WhenOpened": "2025-07-02T09:06:33.995Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "AudioRecorder.cs",
+              "DocumentMoniker": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\Models\\AudioRecorder.cs",
+              "RelativeDocumentMoniker": "NVHplatform\\Models\\AudioRecorder.cs",
+              "ToolTip": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\Models\\AudioRecorder.cs",
+              "RelativeToolTip": "NVHplatform\\Models\\AudioRecorder.cs",
+              "ViewState": "AgIAAFkAAAAAAAAAAAAqwIAAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-01T07:20:33.147Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "AnalysisView.xaml.cs",
+              "DocumentMoniker": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\Views\\AnalysisView.xaml.cs",
+              "RelativeDocumentMoniker": "NVHplatform\\Views\\AnalysisView.xaml.cs",
+              "ToolTip": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\Views\\AnalysisView.xaml.cs",
+              "RelativeToolTip": "NVHplatform\\Views\\AnalysisView.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-02T02:34:57.929Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "AudioFileInfo.xaml.cs",
+              "DocumentMoniker": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\Views\\AudioFileInfo.xaml.cs",
+              "RelativeDocumentMoniker": "NVHplatform\\Views\\AudioFileInfo.xaml.cs",
+              "ToolTip": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\Views\\AudioFileInfo.xaml.cs",
+              "RelativeToolTip": "NVHplatform\\Views\\AudioFileInfo.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-02T02:37:35.084Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "AudioFileInfo.xaml",
+              "DocumentMoniker": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\Views\\AudioFileInfo.xaml",
+              "RelativeDocumentMoniker": "NVHplatform\\Views\\AudioFileInfo.xaml",
+              "ToolTip": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\Views\\AudioFileInfo.xaml",
+              "RelativeToolTip": "NVHplatform\\Views\\AudioFileInfo.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-07-02T02:36:39.308Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "App.xaml",
+              "DocumentMoniker": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\App.xaml",
+              "RelativeDocumentMoniker": "NVHplatform\\App.xaml",
+              "ToolTip": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\App.xaml",
+              "RelativeToolTip": "NVHplatform\\App.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-07-01T07:49:55.861Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "RecordingView.xaml",
+              "DocumentMoniker": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\Views\\RecordingView.xaml",
+              "RelativeDocumentMoniker": "NVHplatform\\Views\\RecordingView.xaml",
+              "ToolTip": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\Views\\RecordingView.xaml",
+              "RelativeToolTip": "NVHplatform\\Views\\RecordingView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-07-02T02:27:09.133Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "InputFileNameDialog.xaml.cs",
+              "DocumentMoniker": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\Views\\InputFileNameDialog.xaml.cs",
+              "RelativeDocumentMoniker": "NVHplatform\\Views\\InputFileNameDialog.xaml.cs",
+              "ToolTip": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\Views\\InputFileNameDialog.xaml.cs",
+              "RelativeToolTip": "NVHplatform\\Views\\InputFileNameDialog.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-01T07:16:59.14Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "InputFileNameDialog.xaml",
+              "DocumentMoniker": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\Views\\InputFileNameDialog.xaml",
+              "RelativeDocumentMoniker": "NVHplatform\\Views\\InputFileNameDialog.xaml",
+              "ToolTip": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\Views\\InputFileNameDialog.xaml",
+              "RelativeToolTip": "NVHplatform\\Views\\InputFileNameDialog.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-07-01T07:13:54.274Z"
             }
           ]
         }

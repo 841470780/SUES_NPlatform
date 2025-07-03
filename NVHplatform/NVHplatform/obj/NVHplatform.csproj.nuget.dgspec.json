@@ -88,6 +88,10 @@
               "target": "Package",
               "version": "[2.4.10, )"
             },
+            "MatFileHandler": {
+              "target": "Package",
+              "version": "[1.3.0, )"
+            },
             "MathNet.Filtering": {
               "target": "Package",
               "version": "[0.7.0, )"

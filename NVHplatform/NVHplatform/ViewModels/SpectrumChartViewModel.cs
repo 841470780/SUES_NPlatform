@@ -14,6 +14,8 @@ namespace NVHplatform.ViewModels
     {
         private const int MaxPoints = 512;
         private ObservableCollection<double> _spectrumValues = new ObservableCollection<double>();
+        private float[] _sourceWaveform; // 用于频域转回时域
+
         public ISeries[] SpectrumSeries { get; set; }
         public Axis[] XAxes { get; set; }
         public Axis[] YAxes { get; set; }
@@ -68,12 +70,13 @@ namespace NVHplatform.ViewModels
 
         public void UpdateSpectrum(float[] samples)
         {
+            _sourceWaveform = samples;
+
             if (samples == null) return;
 
             int fftLength = 1024;
             var fftBuffer = new NAudio.Dsp.Complex[fftLength];
 
-            // 必须为每个元素 new 一个 Complex 实例！
             for (int i = 0; i < fftLength; i++)
                 fftBuffer[i] = new NAudio.Dsp.Complex();
 
@@ -99,12 +102,16 @@ namespace NVHplatform.ViewModels
                 _spectrumValues.Add(magnitude);
             }
 
-            // 如果 SpectrumSeries[0] 还未初始化，则提前 new 一下
             var line = SpectrumSeries[0] as LineSeries<double>;
             if (line != null)
                 line.Values = _spectrumValues;
 
             OnPropertyChanged(nameof(SpectrumSeries));
+        }
+
+        public float[] GetTimeDomainSamples()
+        {
+            return _sourceWaveform ?? new float[0];
         }
 
         public void ClearSpectrum()
@@ -113,11 +120,8 @@ namespace NVHplatform.ViewModels
             OnPropertyChanged(nameof(SpectrumSeries));
         }
 
-
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged(string name) =>
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-
-
     }
 }

@@ -1,4 +1,5 @@
 ﻿using LiveChartsCore;
+using LiveChartsCore.Defaults;
 using LiveChartsCore.SkiaSharpView;
 using LiveChartsCore.SkiaSharpView.Painting;
 using SkiaSharp;
@@ -6,14 +7,20 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
 using System.Runtime.CompilerServices;
 
 namespace NVHplatform.ViewModels
 {
     public class FluctuationChartViewModel : INotifyPropertyChanged
     {
+        private List<float> _rawSamples = new List<float>();
+        public int SampleRate { get; set; } = 44100;
+
         private const int MaxPoints = 200;
+        private readonly int winSize = 1024;
+
+        private double _currentTime = 0;
+        private ObservableCollection<ObservablePoint> _fluctuationPoints = new ObservableCollection<ObservablePoint>();
 
         private ISeries[] _fluctuationSeries;
         public ISeries[] FluctuationSeries
@@ -31,13 +38,11 @@ namespace NVHplatform.ViewModels
 
         public FluctuationChartViewModel()
         {
-            var values = new ObservableCollection<double>();
-
             FluctuationSeries = new ISeries[]
             {
-                new LineSeries<double>
+                new LineSeries<ObservablePoint>
                 {
-                    Values = values,
+                    Values = _fluctuationPoints,
                     GeometrySize = 0,
                     Fill = null,
                     Stroke = new SolidColorPaint(SKColors.Crimson, 2),
@@ -50,7 +55,7 @@ namespace NVHplatform.ViewModels
             {
                 new Axis
                 {
-                    Name = "Time (frames)",
+                    Name = "Time (s)",
                     NameTextSize = 16,
                     NamePaint = new SolidColorPaint(SKColors.Black),
                     LabelsRotation = 0,
@@ -67,7 +72,7 @@ namespace NVHplatform.ViewModels
             {
                 new Axis
                 {
-                    Name = "Fluctuation",
+                    Name = "Fluctuation (RMS)",
                     NameTextSize = 16,
                     NamePaint = new SolidColorPaint(SKColors.Black),
                     LabelsRotation = 0,
@@ -88,54 +93,53 @@ namespace NVHplatform.ViewModels
         {
             if (samples == null || samples.Length == 0) return;
 
-            int winSize = 1024;
-            var rms = new ObservableCollection<double>();
+            double deltaT = winSize / (double)SampleRate;
+            _fluctuationPoints.Clear();
+            _currentTime = 0;
+
             for (int i = 0; i < samples.Length; i += winSize)
             {
                 double sum = 0;
                 for (int j = 0; j < winSize && (i + j) < samples.Length; j++)
                     sum += samples[i + j] * samples[i + j];
-                rms.Add(Math.Sqrt(sum / winSize));
+                double rms = Math.Sqrt(sum / winSize);
+                _fluctuationPoints.Add(new ObservablePoint(_currentTime, rms));
+                _currentTime += deltaT;
             }
+
+            OnPropertyChanged(nameof(FluctuationSeries));
+            System.Diagnostics.Debug.WriteLine($"[FluctuationChart] 导入更新完成，共 {_fluctuationPoints.Count} 点");
+        }
+
+        /// <summary>
+        /// 实时录音追加单个 RMS 点
+        /// </summary>
+        public void AddRealtimeFluctuationPoint(double rms)
+        {
+            double deltaT = winSize / (double)SampleRate;
 
             App.Current.Dispatcher.Invoke(() =>
             {
-                var series = FluctuationSeries.FirstOrDefault() as LineSeries<double>;
-                if (series != null)
-                {
-                    series.Values = rms;
-                }
+                if (_fluctuationPoints.Count >= MaxPoints)
+                    _fluctuationPoints.RemoveAt(0);
+
+                _fluctuationPoints.Add(new ObservablePoint(_currentTime, rms));
+                _currentTime += deltaT;
             });
-
-            System.Diagnostics.Debug.WriteLine($"[FluctuationChart] Update 完成，共 {rms.Count} 点");
         }
 
-        /// 实时录音追加单个点（需要 ObservableCollection 支持）
-        public void AddRealtimeFluctuationPoint(double rms)
-        {
-            var line = FluctuationSeries.FirstOrDefault() as LineSeries<double>;
-            if (line == null) return;
-
-            if (line.Values is ObservableCollection<double> values)
-            {
-                App.Current.Dispatcher.Invoke(() =>
-                {
-                    if (values.Count >= MaxPoints)
-                        values.RemoveAt(0);
-                    values.Add(rms);
-                });
-            }
-        }
+        /// <summary>
+        /// 清除波动图
+        /// </summary>
         public void ClearFluctuation()
         {
-            if (FluctuationSeries.Length > 0 && FluctuationSeries[0] is LineSeries<double> line)
-            {
-                if (line.Values is IList<double> values)
-                {
-                    values.Clear();
-                    OnPropertyChanged(nameof(FluctuationSeries));
-                }
-            }
+            _fluctuationPoints.Clear();
+            _currentTime = 0;
+            OnPropertyChanged(nameof(FluctuationSeries));
+        }
+        public float[] GetSamples()
+        {
+            return _rawSamples.ToArray();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

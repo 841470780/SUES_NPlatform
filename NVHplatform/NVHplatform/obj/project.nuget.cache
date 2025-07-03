@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "sphnp6gahbk=",
+  "dgSpecHash": "QdK5eRhklng=",
   "success": true,
   "projectFilePath": "D:\\C#_Programs\\NVHplatform\\NVHplatform\\NVHplatform.csproj",
   "expectedPackageFiles": [
@@ -15,6 +15,7 @@
     "C:\\Users\\HZ\\.nuget\\packages\\livechartscore.skiasharpview\\2.0.0-rc5.4\\livechartscore.skiasharpview.2.0.0-rc5.4.nupkg.sha512",
     "C:\\Users\\HZ\\.nuget\\packages\\livechartscore.skiasharpview.wpf\\2.0.0-rc5.4\\livechartscore.skiasharpview.wpf.2.0.0-rc5.4.nupkg.sha512",
     "C:\\Users\\HZ\\.nuget\\packages\\mahapps.metro\\2.4.10\\mahapps.metro.2.4.10.nupkg.sha512",
+    "C:\\Users\\HZ\\.nuget\\packages\\matfilehandler\\1.3.0\\matfilehandler.1.3.0.nupkg.sha512",
     "C:\\Users\\HZ\\.nuget\\packages\\mathnet.filtering\\0.7.0\\mathnet.filtering.0.7.0.nupkg.sha512",
     "C:\\Users\\HZ\\.nuget\\packages\\mathnet.numerics\\5.0.0\\mathnet.numerics.5.0.0.nupkg.sha512",
     "C:\\Users\\HZ\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\8.0.0\\microsoft.bcl.asyncinterfaces.8.0.0.nupkg.sha512",

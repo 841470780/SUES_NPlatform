@@ -207,6 +207,19 @@
           }
         }
       },
+      "MatFileHandler/1.3.0": {
+        "type": "package",
+        "compile": {
+          "lib/net472/MatFileHandler.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net472/MatFileHandler.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "MathNet.Filtering/0.7.0": {
         "type": "package",
         "dependencies": {
@@ -1134,6 +1147,19 @@
           }
         }
       },
+      "MatFileHandler/1.3.0": {
+        "type": "package",
+        "compile": {
+          "lib/net472/MatFileHandler.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net472/MatFileHandler.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "MathNet.Filtering/0.7.0": {
         "type": "package",
         "dependencies": {
@@ -2013,6 +2039,19 @@
         "resource": {
           "lib/net47/de/MahApps.Metro.resources.dll": {
             "locale": "de"
+          }
+        }
+      },
+      "MatFileHandler/1.3.0": {
+        "type": "package",
+        "compile": {
+          "lib/net472/MatFileHandler.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net472/MatFileHandler.dll": {
+            "related": ".xml"
           }
         }
       },
@@ -2901,6 +2940,19 @@
           }
         }
       },
+      "MatFileHandler/1.3.0": {
+        "type": "package",
+        "compile": {
+          "lib/net472/MatFileHandler.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net472/MatFileHandler.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "MathNet.Filtering/0.7.0": {
         "type": "package",
         "dependencies": {
@@ -3783,6 +3835,19 @@
         "resource": {
           "lib/net47/de/MahApps.Metro.resources.dll": {
             "locale": "de"
+          }
+        }
+      },
+      "MatFileHandler/1.3.0": {
+        "type": "package",
+        "compile": {
+          "lib/net472/MatFileHandler.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net472/MatFileHandler.dll": {
+            "related": ".xml"
           }
         }
       },
@@ -4792,6 +4857,24 @@
         "mahapps.metro.logo.png",
         "mahapps.metro.nuspec",
         "tools/VisualStudioToolsManifest.xml"
+      ]
+    },
+    "MatFileHandler/1.3.0": {
+      "sha512": "SDqzrPRWmpKWWGc1qi7VJgNw22YNECe1iCpsis0WUyKNqcH3XlRhVzZdNw+A/QMzDW9oWoVdZs5pbUjUeK7IOA==",
+      "type": "package",
+      "path": "matfilehandler/1.3.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "lib/net461/MatFileHandler.dll",
+        "lib/net461/MatFileHandler.xml",
+        "lib/net472/MatFileHandler.dll",
+        "lib/net472/MatFileHandler.xml",
+        "lib/netstandard2.0/MatFileHandler.dll",
+        "lib/netstandard2.0/MatFileHandler.xml",
+        "matfilehandler.1.3.0.nupkg.sha512",
+        "matfilehandler.nuspec"
       ]
     },
     "MathNet.Filtering/0.7.0": {
@@ -6045,6 +6128,7 @@
       "LiveChartsCore.SkiaSharpView >= 2.0.0-rc5.4",
       "LiveChartsCore.SkiaSharpView.WPF >= 2.0.0-rc5.4",
       "MahApps.Metro >= 2.4.10",
+      "MatFileHandler >= 1.3.0",
       "MathNet.Filtering >= 0.7.0",
       "MathNet.Numerics >= 5.0.0",
       "Microsoft.Bcl.AsyncInterfaces >= 8.0.0",
@@ -6174,6 +6258,10 @@
           "MahApps.Metro": {
             "target": "Package",
             "version": "[2.4.10, )"
+          },
+          "MatFileHandler": {
+            "target": "Package",
+            "version": "[1.3.0, )"
           },
           "MathNet.Filtering": {
             "target": "Package",

@@ -1,10 +1,12 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using NAudio.Wave;
 using NVHplatform.Models;
+using NVHplatform.Views;
 using System;
 using System.Collections.ObjectModel;
 using System.IO;
-using CommunityToolkit.Mvvm.Input;
+using System.Windows;
 
 
 namespace NVHplatform.ViewModels
@@ -170,13 +172,37 @@ namespace NVHplatform.ViewModels
                 return;
             }
 
+            // 弹出输入文件名窗口，并居中显示
+            var dialog = new InputFileNameDialog
+            {
+                Owner = Application.Current.MainWindow,
+                WindowStartupLocation = WindowStartupLocation.CenterOwner
+            };
+
+            if (dialog.ShowDialog() != true)
+            {
+                Logger.AddLog("用户取消录音", LogLevel.Info);
+                return;
+            }
+
+            string fileName = dialog.FileName;
+            if (string.IsNullOrWhiteSpace(fileName))
+            {
+                Logger.AddLog("文件名无效", LogLevel.Warning);
+                return;
+            }
+
             try
             {
+                // ✅ 清空上一段录音信息
+                AudioFileInfoVM.CurrentFileInfo = null;
+
                 recorder.DeviceNumber = SelectedDeviceIndex;
-                recorder.StartRecording();
+                recorder.StartRecording(fileName);  // 传入文件名
                 IsRecording = true;
                 StatusText = "正在录音...";
-                Logger.AddLog("开始录音", LogLevel.Info);
+                Logger.AddLog($"开始录音，文件名：{fileName}", LogLevel.Info);
+
             }
             catch (Exception ex)
             {
@@ -227,7 +253,7 @@ namespace NVHplatform.ViewModels
             }
 
             using var reader = new AudioFileReader(filePath);
-            AudioFileInfoVM.CurrentFileInfo = new AudioFileInfo
+            AudioFileInfoVM.CurrentFileInfo = new Models.AudioFileInfo
             {
                 SourceType = "录音",
                 FileName = Path.GetFileName(filePath),

@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.Input;
 using LiveChartsCore;
+using NVHplatform.Interop;
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -16,6 +17,7 @@ namespace NVHplatform.ViewModels
         public IRelayCommand ResetChartsCommand { get; }
         public IRelayCommand ExportChartsCommand { get; }
         public IRelayCommand<ChartItem> ExportSingleChartCommand { get; }
+        public IRelayCommand<ChartItem> ToggleChartDomainCommand { get; }
 
         // 事件定义
         public event EventHandler ExportRequested;
@@ -28,7 +30,8 @@ namespace NVHplatform.ViewModels
         {
             Waveform,
             Spectrum,
-            Fluctuation
+            Fluctuation,
+            AWeighting
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -55,6 +58,7 @@ namespace NVHplatform.ViewModels
             Charts.Add(new WaveformChartItem());
             Charts.Add(new SpectrumChartItem());
             Charts.Add(new FluctuationChartItem());
+            Charts.Add(new AWeightingChartItem());
 
             // 初始化命令
             DeleteChartCommand = new RelayCommand<ChartItem>(DeleteChart);
@@ -65,6 +69,7 @@ namespace NVHplatform.ViewModels
             {
                 ExportSingleChartRequested?.Invoke(this, item);
             });
+            ToggleChartDomainCommand = new RelayCommand<ChartItem>(ToggleChartDomain);
         }
 
         public void AddChartWithType(ChartType type)
@@ -110,6 +115,29 @@ namespace NVHplatform.ViewModels
                 chart.ResetData();
         }
 
+        private void ToggleChartDomain(ChartItem item)
+        {
+            if (item is WaveformChartItem waveform)
+            {
+                var spectrum = new SpectrumChartItem();
+                spectrum.VM.UpdateSpectrum(waveform.VM.GetSamples());
+                ReplaceChart(item, spectrum);
+            }
+            else if (item is SpectrumChartItem spectrum)
+            {
+                var waveformNew = new WaveformChartItem();
+                waveformNew.VM.UpdateWaveform(spectrum.VM.GetTimeDomainSamples());
+                ReplaceChart(item, waveformNew);
+            }
+        }
+
+        private void ReplaceChart(ChartItem oldItem, ChartItem newItem)
+        {
+            int index = Charts.IndexOf(oldItem);
+            if (index >= 0)
+                Charts[index] = newItem;
+        }
+
         // -------- ChartItem 基类与子类 --------
         public abstract class ChartItem : INotifyPropertyChanged
         {
@@ -120,15 +148,21 @@ namespace NVHplatform.ViewModels
             public abstract void UpdateData(float[] samples);
             public abstract void ResetData();
 
+            // 新增：用于控制是否显示“切换图表”按钮
+            public virtual bool CanToggleDomain => false;
+
             public event PropertyChangedEventHandler PropertyChanged;
             protected void OnPropertyChanged(string propertyName) =>
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
+
         public class WaveformChartItem : ChartItem
         {
             public WaveformChartViewModel VM { get; } = new WaveformChartViewModel();
-            public override string Title => "波形图";
+            public override bool CanToggleDomain => true;
+
+            public override string Title => "波形图(时域图)";
             public override object Series => VM.WaveformSeries;
             public override object XAxes => VM.XAxes;
             public override object YAxes => VM.YAxes;
@@ -139,7 +173,9 @@ namespace NVHplatform.ViewModels
         public class SpectrumChartItem : ChartItem
         {
             public SpectrumChartViewModel VM { get; } = new SpectrumChartViewModel();
-            public override string Title => "频谱图";
+            public override bool CanToggleDomain => true;
+
+            public override string Title => "频谱图(频域图)";
             public override object Series => VM.SpectrumSeries;
             public override object XAxes => VM.XAxes;
             public override object YAxes => VM.YAxes;
@@ -150,12 +186,39 @@ namespace NVHplatform.ViewModels
         public class FluctuationChartItem : ChartItem
         {
             public FluctuationChartViewModel VM { get; } = new FluctuationChartViewModel();
-            public override string Title => "波动强度图";
+            public override string Title => "波动强度图(时域图)";
             public override object Series => VM.FluctuationSeries;
             public override object XAxes => VM.XAxes;
             public override object YAxes => VM.YAxes;
             public override void UpdateData(float[] samples) => VM.UpdateFluctuation(samples);
             public override void ResetData() => VM.ClearFluctuation();
         }
+
+        public class AWeightingChartItem : ChartItem
+        {
+            public AWeightingChartViewModel VM { get; } = new AWeightingChartViewModel();
+            public override string Title => "A计权图(时域图)";
+            public override object Series => VM.Series;
+            public override object XAxes => VM.XAxes;
+            public override object YAxes => VM.YAxes;
+            public override void UpdateData(float[] samples)
+            {
+                int frameSize = 2048;
+                for (int i = 0; i + frameSize <= samples.Length; i += frameSize)
+                {
+                    var frame = new double[frameSize];
+                    for (int j = 0; j < frameSize; j++)
+                        frame[j] = samples[i + j];
+
+                    double rms = AWeightingInterop.ApplyAWeightingAndComputeRMS(frame, frame.Length);
+                    double dba = AWeightingInterop.ComputeSPLA(rms);
+                    VM.AddRealtimePoint(dba);
+                }
+            }
+
+
+            public override void ResetData() => VM.Clear();
+        }
+
     }
 }

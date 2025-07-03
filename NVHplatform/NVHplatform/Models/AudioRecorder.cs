@@ -1,11 +1,10 @@
 ﻿using NAudio.CoreAudioApi;
 using NAudio.Wave;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using LiveChartsCore.Defaults;
+using NVHplatform.ViewModels;
+using NVHplatform.Interop;
 
 namespace NVHplatform.Models
 {
@@ -22,15 +21,40 @@ namespace NVHplatform.Models
         public event EventHandler<float[]> RawAudioBufferAvailable;
         public event EventHandler<float> VolumeLevelChanged;
 
-        public void StartRecording()
+        public AWeightingChartViewModel AWeightingChartViewModel { get; set; }
+
+        public FluctuationChartViewModel FluctuationChartViewModel { get; set; }
+
+        public void StartRecording(string fileName)
         {
             try
             {
+                // ✅ 停止前一段录音（若未手动 Stop）
+                waveIn?.StopRecording();
+                writer?.Dispose();
+                writer = null;
+                waveIn?.Dispose();
+                waveIn = null;
+
+                // ✅ 清空上一段的路径
+                LatestFilePath = null;
+
+                // 确保目录存在
                 string folderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Recordings");
                 if (!Directory.Exists(folderPath)) Directory.CreateDirectory(folderPath);
 
-                string timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
-                string outputFilePath = Path.Combine(folderPath, $"recorded_{timestamp}.wav");
+                // 处理非法字符并加后缀
+                foreach (char c in Path.GetInvalidFileNameChars())
+                {
+                    fileName = fileName.Replace(c, '_');
+                }
+
+                if (!fileName.EndsWith(".wav", StringComparison.OrdinalIgnoreCase))
+                {
+                    fileName += ".wav";
+                }
+
+                string outputFilePath = Path.Combine(folderPath, fileName);
                 LatestFilePath = outputFilePath;
 
                 waveIn = new WaveInEvent();
@@ -47,6 +71,8 @@ namespace NVHplatform.Models
                 Console.WriteLine($"启动录音失败: {ex.Message}");
             }
         }
+
+
 
         private void OnDataAvailable(object sender, WaveInEventArgs e)
         {
@@ -72,6 +98,35 @@ namespace NVHplatform.Models
 
                 VolumeLevelChanged?.Invoke(this, max);
                 RawAudioBufferAvailable?.Invoke(this, samples);
+
+                // ✅ 新增：计算 RMS 并添加至波动图
+                if (samples.Length > 0 && FluctuationChartViewModel != null)
+                {
+                    double sum = 0;
+                    foreach (var s in samples)
+                        sum += s * s;
+                    double rms = Math.Sqrt(sum / samples.Length);
+
+                    FluctuationChartViewModel.AddRealtimeFluctuationPoint(rms);
+                }
+
+                // ✅ 接入 A计权图表逻辑
+                if (samples.Length > 0 && AWeightingChartViewModel != null)
+                {
+                    // 转 double[]
+                    double[] doubleSamples = new double[samples.Length];
+                    for (int i = 0; i < samples.Length; i++)
+                        doubleSamples[i] = samples[i];
+
+                    // 调用 DLL 获取 A计权 RMS
+                    double rms = AWeightingInterop.ApplyAWeightingAndComputeRMS(doubleSamples, doubleSamples.Length);
+
+                    // 转换为 dB(A)
+                    double spl = AWeightingInterop.ComputeSPLA(rms);
+
+                    // 加入图表
+                    AWeightingChartViewModel.AddRealtimePoint(spl);
+                }
             }
             catch (Exception ex)
             {
@@ -103,7 +158,6 @@ namespace NVHplatform.Models
             }
         }
 
-
         private void OnRecordingStopped(object sender, StoppedEventArgs e)
         {
             writer?.Dispose();
@@ -130,5 +184,4 @@ namespace NVHplatform.Models
             }
         }
     }
-
 }

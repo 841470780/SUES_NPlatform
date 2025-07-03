@@ -20,9 +20,9 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="4*" MinWidth="115"/>
+            <ColumnDefinition Width="3.5*" MinWidth="115"/>
             <ColumnDefinition Width="10"/>
-            <ColumnDefinition Width="6*" MinWidth="400"/>
+            <ColumnDefinition Width="6.5*" MinWidth="400"/>
         </Grid.ColumnDefinitions>
         
         <Border BorderBrush="#D3D8D9" BorderThickness="1.5" CornerRadius="15" Padding="10" Margin="15,15,10,15">

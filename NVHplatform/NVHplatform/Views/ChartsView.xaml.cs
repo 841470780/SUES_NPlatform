@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -17,7 +18,6 @@ namespace NVHplatform.Views
         {
             InitializeComponent();
 
-            // 初始化时绑定 ViewModel 的事件
             if (this.DataContext is ChartsViewModel vm)
             {
                 vm.ExportRequested += ExportAllChartsAsImage;
@@ -56,7 +56,7 @@ namespace NVHplatform.Views
             }
 
             string folder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Charts");
-            Directory.CreateDirectory(folder); // 确保文件夹存在
+            Directory.CreateDirectory(folder);
 
             for (int i = 0; i < charts.Count; i++)
             {
@@ -64,31 +64,71 @@ namespace NVHplatform.Views
                 SaveFrameworkElementAsPng(charts[i], filePath);
             }
 
-            MessageBox.Show($"成功导出 {charts.Count} 张图表至Charts文件夹。", "导出完成", MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show($"成功导出 {charts.Count} 张图表至 Charts 文件夹。", "导出完成", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void ExportSingleChartAsImage(object sender, ChartsViewModel.ChartItem item)
         {
-            var chartControl = FindVisualChildren<CartesianChart>(this)
-                .FirstOrDefault(chart => chart.DataContext == item);
-
-            if (chartControl == null)
+            var dlg = new ExportFormatDialog
             {
-                MessageBox.Show("未找到对应图表控件。", "导出失败", MessageBoxButton.OK, MessageBoxImage.Warning);
+                Owner = Window.GetWindow(this)
+            };
+
+            if (dlg.ShowDialog() != true || dlg.SelectedFormat == ExportFormatDialog.ExportFormat.None)
                 return;
-            }
 
             string folder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Charts");
-            Directory.CreateDirectory(folder); // 创建目录（如不存在）
+            Directory.CreateDirectory(folder);
+            string baseName = $"{item.Title}_{DateTime.Now:HHmmss}";
 
-            string filePath = Path.Combine(folder, $"{item.Title}_{DateTime.Now:HHmmss}.png");
-            SaveFrameworkElementAsPng(chartControl, filePath);
+            if (dlg.SelectedFormat == ExportFormatDialog.ExportFormat.PNG)
+            {
+                var chartControl = FindVisualChildren<CartesianChart>(this)
+                    .FirstOrDefault(chart => chart.DataContext == item);
 
+                if (chartControl == null)
+                {
+                    MessageBox.Show("未找到对应图表控件。", "导出失败", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
 
-            SaveFrameworkElementAsPng(chartControl, filePath);
+                string filePath = Path.Combine(folder, $"{baseName}.png");
+                SaveFrameworkElementAsPng(chartControl, filePath);
 
-            MessageBox.Show($"图表已导出至Charts文件夹：{Path.GetFileName(filePath)}", "导出成功", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show($"图表已导出为 PNG 至 Charts 文件夹：{Path.GetFileName(filePath)}", "导出成功", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+            {
+                float[] samples = item switch
+                {
+                    ChartsViewModel.WaveformChartItem waveform => waveform.VM.GetSamples(),
+                    ChartsViewModel.SpectrumChartItem spectrum => spectrum.VM.GetTimeDomainSamples(),
+                    ChartsViewModel.FluctuationChartItem fluct => fluct.VM.GetSamples(),
+                    _ => null
+                };
+
+                if (samples == null || samples.Length == 0)
+                {
+                    MessageBox.Show("该图表无可导出的原始数据。", "导出失败", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+
+                if (dlg.SelectedFormat == ExportFormatDialog.ExportFormat.MAT)
+                {
+                    string matPath = Path.Combine(folder, $"{baseName}.mat");
+                    SaveSamplesToMatFile(samples, matPath);
+                    MessageBox.Show($"数据已导出为 MAT 至 Charts 文件夹：{Path.GetFileName(matPath)}", "导出成功", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                else if (dlg.SelectedFormat == ExportFormatDialog.ExportFormat.CSV)
+                {
+                    string csvPath = Path.Combine(folder, $"{baseName}.csv");
+                    SaveSamplesToCsvFile(samples, csvPath);
+                    MessageBox.Show($"数据已导出为 CSV 至 Charts 文件夹：{Path.GetFileName(csvPath)}", "导出成功", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+            }
         }
+
+
 
         private static void SaveFrameworkElementAsPng(FrameworkElement element, string filePath)
         {
@@ -122,6 +162,34 @@ namespace NVHplatform.Views
 
                 foreach (var descendant in FindVisualChildren<T>(child))
                     yield return descendant;
+            }
+        }
+        private static void SaveSamplesToCsvFile(float[] samples, string filePath)
+        {
+            var lines = samples.Select((val, index) => $"{index},{val}");
+            File.WriteAllLines(filePath, lines);
+        }
+
+        /// <summary>
+        /// 保存数据为 MATLAB v4 格式
+        /// </summary>
+        private static void SaveSamplesToMatFile(float[] samples, string filePath)
+        {
+            using (var fs = new FileStream(filePath, FileMode.Create))
+            using (var bw = new BinaryWriter(fs))
+            {
+                // 写入头部 (type = 1000 表示 double 类型)
+                bw.Write(1000);                      // type: double
+                bw.Write(1);                         // mrows
+                bw.Write(samples.Length);            // ncols
+                bw.Write(0);                         // imagf
+                bw.Write(Encoding.ASCII.GetBytes("samples".PadRight(20, '\0'))); // var name (20 bytes)
+
+                // 写入数据
+                foreach (var val in samples)
+                {
+                    bw.Write((double)val);
+                }
             }
         }
     }

@@ -1,10 +1,12 @@
 ﻿using LiveChartsCore;
+using LiveChartsCore.Defaults;
 using LiveChartsCore.SkiaSharpView;
 using LiveChartsCore.SkiaSharpView.Painting;
 using SkiaSharp;
-using System.Collections.ObjectModel;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Media;
@@ -15,10 +17,16 @@ namespace NVHplatform.ViewModels
     public class WaveformChartViewModel : INotifyPropertyChanged
     {
         private const int MaxPoints = 1024;
-        private ObservableCollection<double> _waveformValues;
+        private List<ObservablePoint> _waveformPoints = new List<ObservablePoint>();        // 用于显示的坐标点
+        private float[] _currentSamples; // 原始样本
         private ISeries[] _waveformSeries;
+
         public Axis[] XAxes { get; set; }
         public Axis[] YAxes { get; set; }
+
+        // 默认采样率和声压换算因子（单位转换）
+        public double SamplingRate { get; set; } = 44100.0;
+        public double CalibrationFactor { get; set; } = 1.0; // 若1.0样本 = 0.6325 Pa，可修改为0.6325
 
         public ISeries[] WaveformSeries
         {
@@ -32,13 +40,11 @@ namespace NVHplatform.ViewModels
 
         public WaveformChartViewModel()
         {
-            _waveformValues = new ObservableCollection<double>();
-
             WaveformSeries = new ISeries[]
             {
-                new LineSeries<double>
+                new LineSeries<ObservablePoint>
                 {
-                    Values = _waveformValues,
+                    Values = _waveformPoints,
                     Fill = null,
                     Stroke = new SolidColorPaint(SKColors.DeepSkyBlue, 1.5f),
                     GeometrySize = 0
@@ -49,7 +55,7 @@ namespace NVHplatform.ViewModels
             {
                 new Axis
                 {
-                    Name = "Time (samples)",
+                    Name = "Time (s)",
                     NameTextSize = 16,
                     NamePaint = new SolidColorPaint(SKColors.Black),
                     LabelsRotation = 0,
@@ -66,7 +72,7 @@ namespace NVHplatform.ViewModels
             {
                 new Axis
                 {
-                    Name = "Amplitude",
+                    Name = "Amplitude (Pa)",
                     NameTextSize = 16,
                     NamePaint = new SolidColorPaint(SKColors.Black),
                     TextSize = 13,
@@ -81,19 +87,39 @@ namespace NVHplatform.ViewModels
 
         public void UpdateWaveform(float[] samples)
         {
-            if (samples == null || _waveformValues == null) return;
+            if (samples == null) return;
 
-            foreach (var sample in samples)
+            _currentSamples = samples;
+            _waveformPoints.Clear();
+
+            int startIdx = samples.Length > MaxPoints ? samples.Length - MaxPoints : 0;
+            double startTime = startIdx / SamplingRate;
+            double endTime = samples.Length / SamplingRate;
+
+            XAxes[0].MinLimit = startTime;
+            XAxes[0].MaxLimit = endTime;
+
+            for (int i = startIdx; i < samples.Length; i++)
             {
-                _waveformValues.Add(sample);
-                if (_waveformValues.Count > MaxPoints)
-                    _waveformValues.RemoveAt(0);
+                double timeSec = i / SamplingRate;
+                double paValue = samples[i] * CalibrationFactor;
+                _waveformPoints.Add(new ObservablePoint(timeSec, paValue));
             }
+
+            WaveformSeries[0].Values = _waveformPoints;
+            OnPropertyChanged(nameof(WaveformSeries));
+        }
+
+
+
+        public float[] GetSamples()
+        {
+            return _currentSamples ?? new float[0];
         }
 
         public void ClearWaveform()
         {
-            _waveformValues.Clear();
+            _waveformPoints.Clear();
             OnPropertyChanged(nameof(WaveformSeries));
         }
 

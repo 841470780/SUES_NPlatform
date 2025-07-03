@@ -16,7 +16,7 @@
             </Grid.RowDefinitions>
             <!-- 居中标题 -->
             <TextBlock Grid.Row="0"
-                Text="波形图"
+                Text="波动强度图"
                 FontSize="18"
                 FontWeight="Bold"
                 HorizontalAlignment="Center"

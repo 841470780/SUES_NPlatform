@@ -9,9 +9,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF"
         xmlns:AduSkin="clr-namespace:AduSkin.Controls.Metro;assembly=AduSkin"
+        xmlns:helper="clr-namespace:NVHplatform.Helpers"
+        xmlns:converters="clr-namespace:NVHplatform.Converters"
         mc:Ignorable="d"
+        Icon="/Windows/resources/icons/el-icon.png"
+        ShowIconOnTitleBar="False"
         Title="上工程NVH团队-音频分析平台"
-        Height="900" Width="1440"
+        Height="900" Width="1600"
         FontFamily="黑体"
         MinHeight="675" MinWidth="1200"
         ResizeMode="CanResizeWithGrip"
@@ -22,6 +26,7 @@
         TitleForeground="White" TitleBarHeight="40">
 
     <Controls:MetroWindow.Resources>
+        <converters:PageMatchConverter x:Key="PageMatchConverter"/>
         <!-- 覆盖MahApps默认的强调色 -->
         <SolidColorBrush x:Key="AccentColorBrush" Color="#FF454545"/>
         <SolidColorBrush x:Key="WindowTitleBrush" Color="#454A4E"/>
@@ -44,12 +49,19 @@
                         </Grid>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="border" Property="Background" Value="#FF3E3E40"/>
+                                <Setter TargetName="border" Property="Background" Value="#E0E0E0"/>
+                                <Setter Property="Foreground" Value="#1A1A1A"/>
                             </Trigger>
                             <Trigger Property="IsPressed" Value="True">
-                                <Setter TargetName="border" Property="Background" Value="#454A4E"/>
+                                <Setter TargetName="border" Property="Background" Value="#C0C0C0"/>
                             </Trigger>
+                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=(helper:ButtonHelper.IsSelected)}"
+                 Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#C0C0C0"/>
+                                <Setter Property="Foreground" Value="Black"/>
+                            </DataTrigger>
                         </ControlTemplate.Triggers>
+
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
@@ -77,7 +89,6 @@
                             VerticalAlignment="Stretch">
 
                             <Grid Margin="4">
-                                <!-- ✅ 可调区域范围 -->
                                 <ContentPresenter x:Name="contentPresenter"
                                           ContentTemplate="{TemplateBinding ContentTemplate}"
                                           Content="{TemplateBinding Content}"
@@ -94,11 +105,12 @@
                             </Trigger>
                             <Trigger Property="IsPressed" Value="True">
                                 <Setter TargetName="border" Property="Background" Value="#C0C0C0"/>
-                                <!-- ✅ 更深 -->
                             </Trigger>
-                            <Trigger Property="IsEnabled" Value="False">
-                                <Setter TargetName="border" Property="Opacity" Value="0.5"/>
-                            </Trigger>
+                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=(helper:ButtonHelper.IsSelected)}"
+                                        Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#C0C0C0"/>
+                                <Setter Property="Foreground" Value="Black"/>
+                            </DataTrigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
@@ -188,9 +200,10 @@
                    Foreground="#333333"/>
 
                 <!-- 登录按钮 -->
-                <Button Margin="20,15,20,15" Background="Transparent" FontFamily="方正粗黑宋简体"
-                Foreground="#333333"  Command="{Binding NavigateCommand}" CommandParameter="Login"
-                Style="{StaticResource SidebarButtonStyle}">
+                <Button Margin="20,15,20,15" Background="Transparent" FontFamily="方正粗黑宋简体" Tag="Login"
+                        helper:ButtonHelper.IsSelected="{Binding CurrentPageName, Converter={StaticResource PageMatchConverter}, ConverterParameter=Login}"
+                        Foreground="#333333"  Command="{Binding NavigateCommand}" CommandParameter="Login"
+                        Style="{StaticResource SidebarButtonStyle}">
                     <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
                         <Image Source="/Windows/resources/icons/login.png" 
                        Width="24" Height="24" 
@@ -202,9 +215,10 @@
                 </Button>
 
                 <!-- 音频录制按钮 -->
-                <Button Margin="20,15,20,15" Background="Transparent" FontFamily="方正粗黑宋简体"
-                Foreground="#333333" Command="{Binding NavigateCommand}" CommandParameter="AudioRecord"
-                Style="{StaticResource SidebarButtonStyle}">
+                <Button Margin="20,15,20,15" Background="Transparent" FontFamily="方正粗黑宋简体" Tag="AudioRecord"
+                        helper:ButtonHelper.IsSelected="{Binding CurrentPageName, Converter={StaticResource PageMatchConverter}, ConverterParameter=AudioRecord}"
+                        Foreground="#333333" Command="{Binding NavigateCommand}" CommandParameter="AudioRecord"
+                        Style="{StaticResource SidebarButtonStyle}">
                     <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
                         <Image Source="/Windows/resources/icons/real.png" 
                        Width="24" Height="24" 
@@ -216,9 +230,10 @@
                 </Button>
 
                 <!-- 深度分析按钮 -->
-                <Button Margin="20,15,20,15" Background="Transparent" FontFamily="方正粗黑宋简体"
-                Foreground="#333333"  Command="{Binding NavigateCommand}" CommandParameter="Analysis"
-                Style="{StaticResource SidebarButtonStyle}">
+                <Button Margin="20,15,20,15" Background="Transparent" FontFamily="方正粗黑宋简体" Tag="Analysis"
+                        helper:ButtonHelper.IsSelected="{Binding CurrentPageName, Converter={StaticResource PageMatchConverter}, ConverterParameter=Analysis}"
+                        Foreground="#333333"  Command="{Binding NavigateCommand}" CommandParameter="Analysis"
+                        Style="{StaticResource SidebarButtonStyle}">
                     <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
                         <Image Source="/Windows/resources/icons/deep.png" 
                        Width="24" Height="24" 
@@ -230,9 +245,10 @@
                 </Button>
 
                 <!-- 历史数据按钮 -->
-                <Button Margin="20,15,20,15" Background="Transparent" FontFamily="方正粗黑宋简体"
-                Foreground="#333333" Command="{Binding NavigateCommand}" CommandParameter="History"
-                Style="{StaticResource SidebarButtonStyle}">
+                <Button Margin="20,15,20,15" Background="Transparent" FontFamily="方正粗黑宋简体" Tag="History"
+                        helper:ButtonHelper.IsSelected="{Binding CurrentPageName, Converter={StaticResource PageMatchConverter}, ConverterParameter=History}"
+                        Foreground="#333333" Command="{Binding NavigateCommand}" CommandParameter="History"
+                        Style="{StaticResource SidebarButtonStyle}">
                     <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
                         <Image Source="/Windows/resources/icons/history.png" 
                        Width="24" Height="24" 
@@ -244,9 +260,10 @@
                 </Button>
 
                 <!-- 设置按钮 -->
-                <Button Margin="20,15,20,15" Background="Transparent" FontFamily="方正粗黑宋简体"
-                Foreground="#333333" Command="{Binding NavigateCommand}" CommandParameter="Setting"
-                Style="{StaticResource SidebarButtonStyle}">
+                <Button Margin="20,15,20,15" Background="Transparent" FontFamily="方正粗黑宋简体" Tag="Setting"
+                        helper:ButtonHelper.IsSelected="{Binding CurrentPageName, Converter={StaticResource PageMatchConverter}, ConverterParameter=Setting}"
+                        Foreground="#333333" Command="{Binding NavigateCommand}" CommandParameter="Setting"
+                        Style="{StaticResource SidebarButtonStyle}">
                     <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
                         <Image Source="/Windows/resources/icons/setting.png" 
                        Width="24" Height="24" 
@@ -262,7 +279,5 @@
         <Grid x:Name="MainContent" Grid.Column="1">
             <ContentControl Content="{Binding CurrentView}" />
         </Grid>
-
-
     </Grid>
 </Controls:MetroWindow>
